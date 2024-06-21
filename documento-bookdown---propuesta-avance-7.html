@@ -1,0 +1,960 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 7 Documento Bookdown - Propuesta avance 7 | Propuesta para realizar el Pronóstico de contaminantes del aire; PM2.5 y CO</title>
+  <meta name="description" content="Chapter 7 Documento Bookdown - Propuesta avance 7 | Propuesta para realizar el Pronóstico de contaminantes del aire; PM2.5 y CO." />
+  <meta name="generator" content="bookdown 0.39 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 7 Documento Bookdown - Propuesta avance 7 | Propuesta para realizar el Pronóstico de contaminantes del aire; PM2.5 y CO" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="Chapter 7 Documento Bookdown - Propuesta avance 7 | Propuesta para realizar el Pronóstico de contaminantes del aire; PM2.5 y CO." />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 7 Documento Bookdown - Propuesta avance 7 | Propuesta para realizar el Pronóstico de contaminantes del aire; PM2.5 y CO" />
+  
+  <meta name="twitter:description" content="Chapter 7 Documento Bookdown - Propuesta avance 7 | Propuesta para realizar el Pronóstico de contaminantes del aire; PM2.5 y CO." />
+  
+
+<meta name="author" content="Alvaro Ariza - Carlos Sierra - Leonardo Cuellar" />
+
+
+<meta name="date" content="2024-06-21" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="documento-bookdown---propuesta-avance-6.html"/>
+<link rel="next" href="modelo-elman.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<link href="libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet" />
+<script src="libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+<link href="libs/dygraphs-1.1.1/dygraph.css" rel="stylesheet" />
+<script src="libs/dygraphs-1.1.1/dygraph-combined.js"></script>
+<script src="libs/dygraphs-1.1.1/shapes.js"></script>
+<script src="libs/moment-2.8.4/moment.js"></script>
+<script src="libs/moment-timezone-0.2.5/moment-timezone-with-data.js"></script>
+<script src="libs/moment-fquarter-1.0.0/moment-fquarter.min.js"></script>
+<script src="libs/dygraphs-binding-1.1.1.6/dygraphs.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Minimal Book Example</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Propuesta para realizar el Pronóstico de contaminantes del aire; PM2.5 y CO</a></li>
+<li class="chapter" data-level="2" data-path="actividad-2-propuesta-avance-2.html"><a href="actividad-2-propuesta-avance-2.html"><i class="fa fa-check"></i><b>2</b> Actividad 2: Propuesta avance 2</a></li>
+<li class="chapter" data-level="3" data-path="actividad-3-propuesta-avance-3.html"><a href="actividad-3-propuesta-avance-3.html"><i class="fa fa-check"></i><b>3</b> Actividad 3: Propuesta Avance 3</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="actividad-3-propuesta-avance-3.html"><a href="actividad-3-propuesta-avance-3.html#revisar-estacionariedad"><i class="fa fa-check"></i><b>3.1</b> Revisar Estacionariedad</a></li>
+<li class="chapter" data-level="3.2" data-path="actividad-3-propuesta-avance-3.html"><a href="actividad-3-propuesta-avance-3.html#realizar-ajuste-de-diferenciación-en-este-caso-nos-arroja-cero-como-respuesta."><i class="fa fa-check"></i><b>3.2</b> Realizar Ajuste de Diferenciación: en este caso nos arroja cero como respuesta.</a></li>
+<li class="chapter" data-level="3.3" data-path="actividad-3-propuesta-avance-3.html"><a href="actividad-3-propuesta-avance-3.html#análisis-de-serie-estacionaria-y-no-estacionaria"><i class="fa fa-check"></i><b>3.3</b> Análisis de Serie Estacionaria y no Estacionaria</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="actividad-4-propuesta-avance-4.html"><a href="actividad-4-propuesta-avance-4.html"><i class="fa fa-check"></i><b>4</b> Actividad 4: Propuesta avance 4</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="actividad-4-propuesta-avance-4.html"><a href="actividad-4-propuesta-avance-4.html#datos-en-tsa"><i class="fa fa-check"></i><b>4.1</b> Datos en TSA</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="actividad-5-propuesta-avance-5.html"><a href="actividad-5-propuesta-avance-5.html"><i class="fa fa-check"></i><b>5</b> Actividad 5: Propuesta avance 5</a></li>
+<li class="chapter" data-level="6" data-path="documento-bookdown---propuesta-avance-6.html"><a href="documento-bookdown---propuesta-avance-6.html"><i class="fa fa-check"></i><b>6</b> Documento Bookdown - Propuesta avance 6</a></li>
+<li class="chapter" data-level="7" data-path="documento-bookdown---propuesta-avance-7.html"><a href="documento-bookdown---propuesta-avance-7.html"><i class="fa fa-check"></i><b>7</b> Documento Bookdown - Propuesta avance 7</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="documento-bookdown---propuesta-avance-7.html"><a href="documento-bookdown---propuesta-avance-7.html#redes-neuronales-elman-y-jordan-aplicado-a-los-datos-co---pm2.5"><i class="fa fa-check"></i><b>7.1</b> redes neuronales ELMAN y Jordan APLICADO A LOS DATOS CO - PM2.5</a></li>
+<li class="chapter" data-level="7.2" data-path="documento-bookdown---propuesta-avance-7.html"><a href="documento-bookdown---propuesta-avance-7.html#ahora-crearemos-un-dataframe-con-n-columnas-cada-una-de-las-cuales-adelantara-un-valor-de-la-serie-en-el-futuro-a-traves-de-una-variable-tipo-zoo-equivalente-al-periodo-de-retardo-de-la-serie.-prediccion-del-co"><i class="fa fa-check"></i><b>7.2</b> Ahora crearemos un dataframe con n columnas, cada una de las cuales adelantara un valor de la serie en el futuro, a traves de una variable tipo zoo, equivalente al periodo de retardo de la serie. (PREDICCION DEL CO)</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="modelo-elman.html"><a href="modelo-elman.html"><i class="fa fa-check"></i><b>8</b> MODELO ELMAN</a></li>
+<li class="chapter" data-level="9" data-path="modelo-jordan.html"><a href="modelo-jordan.html"><i class="fa fa-check"></i><b>9</b> MODELO JORDAN</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Propuesta para realizar el Pronóstico de contaminantes del aire; PM2.5 y CO</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="documento-bookdown---propuesta-avance-7" class="section level1 hasAnchor" number="7">
+<h1><span class="header-section-number">Chapter 7</span> Documento Bookdown - Propuesta avance 7<a href="documento-bookdown---propuesta-avance-7.html#documento-bookdown---propuesta-avance-7" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Aplicar las redes neuronales ELMAN y Jordan, y su pronóstico al conjunto de datos con el que han venido trabajando.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="documento-bookdown---propuesta-avance-7.html#cb1-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
+<pre><code>## ── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+## ✔ dplyr     1.1.4     ✔ readr     2.1.5
+## ✔ forcats   1.0.0     ✔ stringr   1.5.1
+## ✔ ggplot2   3.5.1     ✔ tibble    3.2.1
+## ✔ lubridate 1.9.3     ✔ tidyr     1.3.1
+## ✔ purrr     1.0.2     
+## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+## ✖ dplyr::filter() masks stats::filter()
+## ✖ dplyr::lag()    masks stats::lag()
+## ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="documento-bookdown---propuesta-avance-7.html#cb3-1" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb3-2"><a href="documento-bookdown---propuesta-avance-7.html#cb3-2" tabindex="-1"></a><span class="fu">library</span>(forecast)</span></code></pre></div>
+<pre><code>## Registered S3 method overwritten by &#39;quantmod&#39;:
+##   method            from
+##   as.zoo.data.frame zoo</code></pre>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="documento-bookdown---propuesta-avance-7.html#cb5-1" tabindex="-1"></a><span class="fu">library</span>(lubridate)</span>
+<span id="cb5-2"><a href="documento-bookdown---propuesta-avance-7.html#cb5-2" tabindex="-1"></a><span class="fu">library</span>(tseries)</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="documento-bookdown---propuesta-avance-7.html#cb6-1" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb6-2"><a href="documento-bookdown---propuesta-avance-7.html#cb6-2" tabindex="-1"></a>datos_CentroAltoRendimiento_RMCAB <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">&quot;C:/Users/ALVARO ARIZA/Desktop/Maestria Javeriana/SERIES DE TIEMPO/ACTIVIDAD 7/datos_CentroAltoRendimiento_RMCAB.xlsx&quot;</span>, </span>
+<span id="cb6-3"><a href="documento-bookdown---propuesta-avance-7.html#cb6-3" tabindex="-1"></a>    <span class="at">col_types =</span> <span class="fu">c</span>(<span class="st">&quot;date&quot;</span>, <span class="st">&quot;numeric&quot;</span>, <span class="st">&quot;numeric&quot;</span>))</span>
+<span id="cb6-4"><a href="documento-bookdown---propuesta-avance-7.html#cb6-4" tabindex="-1"></a><span class="fu">View</span>(datos_CentroAltoRendimiento_RMCAB)</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="documento-bookdown---propuesta-avance-7.html#cb7-1" tabindex="-1"></a><span class="fu">library</span>(lubridate)  <span class="co"># Para manipular fechas y horas</span></span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="documento-bookdown---propuesta-avance-7.html#cb8-1" tabindex="-1"></a>datos_CentroAltoRendimiento_RMCAB <span class="sc">%&gt;%</span></span>
+<span id="cb8-2"><a href="documento-bookdown---propuesta-avance-7.html#cb8-2" tabindex="-1"></a>        <span class="fu">mutate_at</span>(<span class="fu">vars</span>(DateTime), <span class="fu">list</span>(<span class="at">year=</span>year, <span class="at">month=</span>month, <span class="at">day=</span>day))<span class="sc">%&gt;%</span></span>
+<span id="cb8-3"><a href="documento-bookdown---propuesta-avance-7.html#cb8-3" tabindex="-1"></a>        <span class="fu">select</span>(<span class="st">&quot;month&quot;</span>, <span class="st">&quot;year&quot;</span>, <span class="st">&quot;CO&quot;</span>)<span class="ot">-&gt;</span>datos_2019_CentroAltoRendimiento_CO</span>
+<span id="cb8-4"><a href="documento-bookdown---propuesta-avance-7.html#cb8-4" tabindex="-1"></a></span>
+<span id="cb8-5"><a href="documento-bookdown---propuesta-avance-7.html#cb8-5" tabindex="-1"></a>datos_2019_CentroAltoRendimiento_CO</span></code></pre></div>
+<pre><code>## # A tibble: 85 × 3
+##    month  year    CO
+##    &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+##  1     1  2012   2.3
+##  2     2  2012   1.6
+##  3     3  2012   0.7
+##  4     4  2012   1.2
+##  5     5  2012   1  
+##  6     6  2012   0.9
+##  7     7  2012   0.5
+##  8     8  2012   0.5
+##  9     9  2012   0.8
+## 10    10  2012   1.2
+## # ℹ 75 more rows</code></pre>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="documento-bookdown---propuesta-avance-7.html#cb10-1" tabindex="-1"></a>datos_CentroAltoRendimiento_RMCAB <span class="sc">%&gt;%</span></span>
+<span id="cb10-2"><a href="documento-bookdown---propuesta-avance-7.html#cb10-2" tabindex="-1"></a>        <span class="fu">mutate_at</span>(<span class="fu">vars</span>(DateTime), <span class="fu">list</span>(<span class="at">year=</span>year, <span class="at">month=</span>month, <span class="at">day=</span>day))<span class="sc">%&gt;%</span></span>
+<span id="cb10-3"><a href="documento-bookdown---propuesta-avance-7.html#cb10-3" tabindex="-1"></a>        <span class="fu">select</span>(<span class="st">&quot;month&quot;</span>, <span class="st">&quot;year&quot;</span>, <span class="st">&quot;PM2.5&quot;</span>)<span class="ot">-&gt;</span>datos_2019_CentroAltoRendimiento_PM2<span class="fl">.5</span></span>
+<span id="cb10-4"><a href="documento-bookdown---propuesta-avance-7.html#cb10-4" tabindex="-1"></a></span>
+<span id="cb10-5"><a href="documento-bookdown---propuesta-avance-7.html#cb10-5" tabindex="-1"></a>datos_2019_CentroAltoRendimiento_PM2<span class="fl">.5</span></span></code></pre></div>
+<pre><code>## # A tibble: 85 × 3
+##    month  year PM2.5
+##    &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+##  1     1  2012    14
+##  2     2  2012    19
+##  3     3  2012    13
+##  4     4  2012     2
+##  5     5  2012     2
+##  6     6  2012     2
+##  7     7  2012     6
+##  8     8  2012     4
+##  9     9  2012     1
+## 10    10  2012     8
+## # ℹ 75 more rows</code></pre>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="documento-bookdown---propuesta-avance-7.html#cb12-1" tabindex="-1"></a>Y <span class="ot">&lt;-</span> <span class="fu">ts</span>(datos_2019_CentroAltoRendimiento_CO[,<span class="dv">3</span>], <span class="at">start =</span><span class="fu">c</span>(<span class="dv">2012</span>,<span class="dv">1</span>), <span class="at">frequency =</span> <span class="dv">12</span>)</span>
+<span id="cb12-2"><a href="documento-bookdown---propuesta-avance-7.html#cb12-2" tabindex="-1"></a></span>
+<span id="cb12-3"><a href="documento-bookdown---propuesta-avance-7.html#cb12-3" tabindex="-1"></a>Y</span></code></pre></div>
+<pre><code>##      Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec
+## 2012 2.3 1.6 0.7 1.2 1.0 0.9 0.5 0.5 0.8 1.2 1.2 1.1
+## 2013 1.0 0.6 0.4 0.2 0.2 0.2 0.1 0.1 0.1 0.7 0.5 0.3
+## 2014 0.2 0.0 0.2 0.5 0.7 0.9 0.8 0.7 0.2 0.4 1.6 2.2
+## 2015 2.1 1.0 1.2 1.1 0.6 0.4 0.6 0.9 1.5 1.9 3.3 4.1
+## 2016 2.6 1.3 1.1 1.4 1.6 1.1 1.6 2.9 4.3 5.0 3.8 3.8
+## 2017 2.8 1.2 0.9 0.9 0.9 0.8 0.6 0.5 1.0 1.5 1.5 0.8
+## 2018 0.4 0.4 1.0 1.1 1.4 1.7 2.0 3.1 4.9 4.8 3.3 3.3
+## 2019 4.6</code></pre>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="documento-bookdown---propuesta-avance-7.html#cb14-1" tabindex="-1"></a>Z <span class="ot">&lt;-</span> <span class="fu">ts</span>(datos_2019_CentroAltoRendimiento_PM2<span class="fl">.5</span>[,<span class="dv">3</span>], <span class="at">start =</span><span class="fu">c</span>(<span class="dv">2012</span>,<span class="dv">1</span>), <span class="at">frequency =</span> <span class="dv">12</span>)</span>
+<span id="cb14-2"><a href="documento-bookdown---propuesta-avance-7.html#cb14-2" tabindex="-1"></a></span>
+<span id="cb14-3"><a href="documento-bookdown---propuesta-avance-7.html#cb14-3" tabindex="-1"></a>Z</span></code></pre></div>
+<pre><code>##      Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec
+## 2012  14  19  13   2   2   2   6   4   1   8   7   5
+## 2013   5   5   3   1   3   2   2   1   3   4   5   2
+## 2014   7   5   1   1   1   3   6   3   9   8   7  17
+## 2015  16  23  12  13   9   6   7  13  11  22  20  43
+## 2016  37  17  14   8  11  19  16  21  18  32  32  28
+## 2017  25  12  13   8   5   5   8   5   3   8  25  11
+## 2018   6   3   2  15  11  13  23  23  32  45  36  31
+## 2019  30</code></pre>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="documento-bookdown---propuesta-avance-7.html#cb16-1" tabindex="-1"></a><span class="fu">class</span>(Y)</span></code></pre></div>
+<pre><code>## [1] &quot;ts&quot;</code></pre>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="documento-bookdown---propuesta-avance-7.html#cb18-1" tabindex="-1"></a><span class="fu">class</span>(Z)</span></code></pre></div>
+<pre><code>## [1] &quot;ts&quot;</code></pre>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="documento-bookdown---propuesta-avance-7.html#cb20-1" tabindex="-1"></a><span class="fu">autoplot</span>(Y) <span class="sc">+</span></span>
+<span id="cb20-2"><a href="documento-bookdown---propuesta-avance-7.html#cb20-2" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot;Contaminación del Áire&quot;</span>) <span class="sc">+</span></span>
+<span id="cb20-3"><a href="documento-bookdown---propuesta-avance-7.html#cb20-3" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;CO&quot;</span>)</span></code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="documento-bookdown---propuesta-avance-7.html#cb21-1" tabindex="-1"></a><span class="fu">autoplot</span>(Z) <span class="sc">+</span></span>
+<span id="cb21-2"><a href="documento-bookdown---propuesta-avance-7.html#cb21-2" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot;Contaminación del Áire&quot;</span>) <span class="sc">+</span></span>
+<span id="cb21-3"><a href="documento-bookdown---propuesta-avance-7.html#cb21-3" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;PM2.5&quot;</span>)</span></code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="documento-bookdown---propuesta-avance-7.html#cb22-1" tabindex="-1"></a><span class="fu">plot</span>(Y)</span></code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="documento-bookdown---propuesta-avance-7.html#cb23-1" tabindex="-1"></a><span class="fu">plot</span>(Z)</span></code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="documento-bookdown---propuesta-avance-7.html#cb24-1" tabindex="-1"></a>descomp <span class="ot">=</span> <span class="fu">decompose</span>(Y)</span>
+<span id="cb24-2"><a href="documento-bookdown---propuesta-avance-7.html#cb24-2" tabindex="-1"></a><span class="fu">autoplot</span>(descomp)</span></code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="documento-bookdown---propuesta-avance-7.html#cb25-1" tabindex="-1"></a>descomp <span class="ot">=</span> <span class="fu">decompose</span>(Z)</span>
+<span id="cb25-2"><a href="documento-bookdown---propuesta-avance-7.html#cb25-2" tabindex="-1"></a><span class="fu">autoplot</span>(descomp)</span></code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="documento-bookdown---propuesta-avance-7.html#cb26-1" tabindex="-1"></a><span class="fu">adf.test</span>(Y)</span></code></pre></div>
+<pre><code>## 
+##  Augmented Dickey-Fuller Test
+## 
+## data:  Y
+## Dickey-Fuller = -2.9429, Lag order = 4, p-value = 0.1889
+## alternative hypothesis: stationary</code></pre>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="documento-bookdown---propuesta-avance-7.html#cb28-1" tabindex="-1"></a><span class="fu">adf.test</span>(Z)</span></code></pre></div>
+<pre><code>## 
+##  Augmented Dickey-Fuller Test
+## 
+## data:  Z
+## Dickey-Fuller = -2.7999, Lag order = 4, p-value = 0.2476
+## alternative hypothesis: stationary</code></pre>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="documento-bookdown---propuesta-avance-7.html#cb30-1" tabindex="-1"></a><span class="fu">acf</span>(Y)</span></code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-16-1.png" width="672" /></p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="documento-bookdown---propuesta-avance-7.html#cb31-1" tabindex="-1"></a><span class="fu">acf</span>(Z)</span></code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-16-2.png" width="672" /></p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="documento-bookdown---propuesta-avance-7.html#cb32-1" tabindex="-1"></a><span class="fu">pacf</span>(Y)</span></code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-17-1.png" width="672" /></p>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="documento-bookdown---propuesta-avance-7.html#cb33-1" tabindex="-1"></a><span class="fu">pacf</span>(Z)</span></code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-17-2.png" width="672" /></p>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="documento-bookdown---propuesta-avance-7.html#cb34-1" tabindex="-1"></a><span class="fu">ndiffs</span>(Y)</span></code></pre></div>
+<pre><code>## [1] 1</code></pre>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="documento-bookdown---propuesta-avance-7.html#cb36-1" tabindex="-1"></a><span class="fu">ndiffs</span>(Z)</span></code></pre></div>
+<pre><code>## [1] 1</code></pre>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="documento-bookdown---propuesta-avance-7.html#cb38-1" tabindex="-1"></a>DY <span class="ot">&lt;-</span> <span class="fu">diff</span>(Y, <span class="at">lag =</span> <span class="dv">1</span>)</span>
+<span id="cb38-2"><a href="documento-bookdown---propuesta-avance-7.html#cb38-2" tabindex="-1"></a></span>
+<span id="cb38-3"><a href="documento-bookdown---propuesta-avance-7.html#cb38-3" tabindex="-1"></a><span class="fu">autoplot</span>(DY) <span class="sc">+</span></span>
+<span id="cb38-4"><a href="documento-bookdown---propuesta-avance-7.html#cb38-4" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot;Contaminación del Áire&quot;</span>) <span class="sc">+</span></span>
+<span id="cb38-5"><a href="documento-bookdown---propuesta-avance-7.html#cb38-5" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;CO&quot;</span>)</span></code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-19-1.png" width="672" /></p>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="documento-bookdown---propuesta-avance-7.html#cb39-1" tabindex="-1"></a>DZ <span class="ot">&lt;-</span> <span class="fu">diff</span>(Z, <span class="at">lag =</span> <span class="dv">1</span>)</span>
+<span id="cb39-2"><a href="documento-bookdown---propuesta-avance-7.html#cb39-2" tabindex="-1"></a></span>
+<span id="cb39-3"><a href="documento-bookdown---propuesta-avance-7.html#cb39-3" tabindex="-1"></a><span class="fu">autoplot</span>(DY) <span class="sc">+</span></span>
+<span id="cb39-4"><a href="documento-bookdown---propuesta-avance-7.html#cb39-4" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot;Contaminación del Áire&quot;</span>) <span class="sc">+</span></span>
+<span id="cb39-5"><a href="documento-bookdown---propuesta-avance-7.html#cb39-5" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;PM2.5&quot;</span>)</span></code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-20-1.png" width="672" /></p>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="documento-bookdown---propuesta-avance-7.html#cb40-1" tabindex="-1"></a><span class="fu">adf.test</span>(DY)</span></code></pre></div>
+<pre><code>## Warning in adf.test(DY): p-value smaller than printed p-value</code></pre>
+<pre><code>## 
+##  Augmented Dickey-Fuller Test
+## 
+## data:  DY
+## Dickey-Fuller = -4.463, Lag order = 4, p-value = 0.01
+## alternative hypothesis: stationary</code></pre>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="documento-bookdown---propuesta-avance-7.html#cb43-1" tabindex="-1"></a><span class="fu">adf.test</span>(DZ)</span></code></pre></div>
+<pre><code>## Warning in adf.test(DZ): p-value smaller than printed p-value</code></pre>
+<pre><code>## 
+##  Augmented Dickey-Fuller Test
+## 
+## data:  DZ
+## Dickey-Fuller = -4.6347, Lag order = 4, p-value = 0.01
+## alternative hypothesis: stationary</code></pre>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="documento-bookdown---propuesta-avance-7.html#cb46-1" tabindex="-1"></a>modelCO <span class="ot">&lt;-</span> <span class="fu">auto.arima</span>(DY, <span class="at">trace =</span> T, <span class="at">stepwise =</span> F, <span class="at">approximation =</span>F, <span class="at">max.d =</span> <span class="dv">0</span>)</span></code></pre></div>
+<pre><code>## 
+##  ARIMA(0,0,0)            with zero mean     : 164.4314
+##  ARIMA(0,0,0)            with non-zero mean : 166.375
+##  ARIMA(0,0,0)(0,0,1)[12] with zero mean     : 161.0031
+##  ARIMA(0,0,0)(0,0,1)[12] with non-zero mean : 162.9498
+##  ARIMA(0,0,0)(0,0,2)[12] with zero mean     : 160.4203
+##  ARIMA(0,0,0)(0,0,2)[12] with non-zero mean : 162.4807
+##  ARIMA(0,0,0)(1,0,0)[12] with zero mean     : 159.4433
+##  ARIMA(0,0,0)(1,0,0)[12] with non-zero mean : 161.4171
+##  ARIMA(0,0,0)(1,0,1)[12] with zero mean     : 161.2847
+##  ARIMA(0,0,0)(1,0,1)[12] with non-zero mean : 163.3411
+##  ARIMA(0,0,0)(1,0,2)[12] with zero mean     : 162.5094
+##  ARIMA(0,0,0)(1,0,2)[12] with non-zero mean : 164.6203
+##  ARIMA(0,0,0)(2,0,0)[12] with zero mean     : 161.1338
+##  ARIMA(0,0,0)(2,0,0)[12] with non-zero mean : 163.2013
+##  ARIMA(0,0,0)(2,0,1)[12] with zero mean     : 163.0534
+##  ARIMA(0,0,0)(2,0,1)[12] with non-zero mean : 165.1834
+##  ARIMA(0,0,0)(2,0,2)[12] with zero mean     : Inf
+##  ARIMA(0,0,0)(2,0,2)[12] with non-zero mean : Inf
+##  ARIMA(0,0,1)            with zero mean     : 144.0756
+##  ARIMA(0,0,1)            with non-zero mean : 146.1003
+##  ARIMA(0,0,1)(0,0,1)[12] with zero mean     : 144.1277
+##  ARIMA(0,0,1)(0,0,1)[12] with non-zero mean : 146.1909
+##  ARIMA(0,0,1)(0,0,2)[12] with zero mean     : 145.4501
+##  ARIMA(0,0,1)(0,0,2)[12] with non-zero mean : 147.5927
+##  ARIMA(0,0,1)(1,0,0)[12] with zero mean     : 143.732
+##  ARIMA(0,0,1)(1,0,0)[12] with non-zero mean : 145.8002
+##  ARIMA(0,0,1)(1,0,1)[12] with zero mean     : 145.7543
+##  ARIMA(0,0,1)(1,0,1)[12] with non-zero mean : 147.8887
+##  ARIMA(0,0,1)(1,0,2)[12] with zero mean     : 147.7015
+##  ARIMA(0,0,1)(1,0,2)[12] with non-zero mean : 149.9027
+##  ARIMA(0,0,1)(2,0,0)[12] with zero mean     : 145.6521
+##  ARIMA(0,0,1)(2,0,0)[12] with non-zero mean : 147.7921
+##  ARIMA(0,0,1)(2,0,1)[12] with zero mean     : 147.8497
+##  ARIMA(0,0,1)(2,0,1)[12] with non-zero mean : 150.0503
+##  ARIMA(0,0,1)(2,0,2)[12] with zero mean     : Inf
+##  ARIMA(0,0,1)(2,0,2)[12] with non-zero mean : Inf
+##  ARIMA(0,0,2)            with zero mean     : 145.839
+##  ARIMA(0,0,2)            with non-zero mean : 147.8968
+##  ARIMA(0,0,2)(0,0,1)[12] with zero mean     : 145.5322
+##  ARIMA(0,0,2)(0,0,1)[12] with non-zero mean : 147.6118
+##  ARIMA(0,0,2)(0,0,2)[12] with zero mean     : 146.9195
+##  ARIMA(0,0,2)(0,0,2)[12] with non-zero mean : 149.0891
+##  ARIMA(0,0,2)(1,0,0)[12] with zero mean     : 145.0453
+##  ARIMA(0,0,2)(1,0,0)[12] with non-zero mean : 147.1323
+##  ARIMA(0,0,2)(1,0,1)[12] with zero mean     : 147.1055
+##  ARIMA(0,0,2)(1,0,1)[12] with non-zero mean : 149.2669
+##  ARIMA(0,0,2)(1,0,2)[12] with zero mean     : 149.2411
+##  ARIMA(0,0,2)(1,0,2)[12] with non-zero mean : 151.4719
+##  ARIMA(0,0,2)(2,0,0)[12] with zero mean     : 147.0351
+##  ARIMA(0,0,2)(2,0,0)[12] with non-zero mean : 149.2025
+##  ARIMA(0,0,2)(2,0,1)[12] with zero mean     : 149.3252
+##  ARIMA(0,0,2)(2,0,1)[12] with non-zero mean : 151.555
+##  ARIMA(0,0,3)            with zero mean     : 145.4266
+##  ARIMA(0,0,3)            with non-zero mean : 147.4216
+##  ARIMA(0,0,3)(0,0,1)[12] with zero mean     : 145.5799
+##  ARIMA(0,0,3)(0,0,1)[12] with non-zero mean : 147.6201
+##  ARIMA(0,0,3)(0,0,2)[12] with zero mean     : 147.1331
+##  ARIMA(0,0,3)(0,0,2)[12] with non-zero mean : 149.286
+##  ARIMA(0,0,3)(1,0,0)[12] with zero mean     : 145.1639
+##  ARIMA(0,0,3)(1,0,0)[12] with non-zero mean : 147.2198
+##  ARIMA(0,0,3)(1,0,1)[12] with zero mean     : 147.102
+##  ARIMA(0,0,3)(1,0,1)[12] with non-zero mean : 149.252
+##  ARIMA(0,0,3)(2,0,0)[12] with zero mean     : 147.073
+##  ARIMA(0,0,3)(2,0,0)[12] with non-zero mean : 149.2279
+##  ARIMA(0,0,4)            with zero mean     : 144.5761
+##  ARIMA(0,0,4)            with non-zero mean : 146.3684
+##  ARIMA(0,0,4)(0,0,1)[12] with zero mean     : 145.8163
+##  ARIMA(0,0,4)(0,0,1)[12] with non-zero mean : 147.7438
+##  ARIMA(0,0,4)(1,0,0)[12] with zero mean     : 145.5764
+##  ARIMA(0,0,4)(1,0,0)[12] with non-zero mean : 147.5329
+##  ARIMA(0,0,5)            with zero mean     : 146.8045
+##  ARIMA(0,0,5)            with non-zero mean : 148.6973
+##  ARIMA(1,0,0)            with zero mean     : 154.8665
+##  ARIMA(1,0,0)            with non-zero mean : 156.9249
+##  ARIMA(1,0,0)(0,0,1)[12] with zero mean     : 153.4893
+##  ARIMA(1,0,0)(0,0,1)[12] with non-zero mean : 155.5723
+##  ARIMA(1,0,0)(0,0,2)[12] with zero mean     : 153.5622
+##  ARIMA(1,0,0)(0,0,2)[12] with non-zero mean : 155.7306
+##  ARIMA(1,0,0)(1,0,0)[12] with zero mean     : 152.5937
+##  ARIMA(1,0,0)(1,0,0)[12] with non-zero mean : 154.6822
+##  ARIMA(1,0,0)(1,0,1)[12] with zero mean     : 154.6021
+##  ARIMA(1,0,0)(1,0,1)[12] with non-zero mean : 156.7569
+##  ARIMA(1,0,0)(1,0,2)[12] with zero mean     : 155.6009
+##  ARIMA(1,0,0)(1,0,2)[12] with non-zero mean : 157.8274
+##  ARIMA(1,0,0)(2,0,0)[12] with zero mean     : 154.4322
+##  ARIMA(1,0,0)(2,0,0)[12] with non-zero mean : 156.5953
+##  ARIMA(1,0,0)(2,0,1)[12] with zero mean     : 156.3181
+##  ARIMA(1,0,0)(2,0,1)[12] with non-zero mean : 158.5479
+##  ARIMA(1,0,0)(2,0,2)[12] with zero mean     : Inf
+##  ARIMA(1,0,0)(2,0,2)[12] with non-zero mean : Inf
+##  ARIMA(1,0,1)            with zero mean     : 146.0309
+##  ARIMA(1,0,1)            with non-zero mean : 148.101
+##  ARIMA(1,0,1)(0,0,1)[12] with zero mean     : 145.9303
+##  ARIMA(1,0,1)(0,0,1)[12] with non-zero mean : 148.0341
+##  ARIMA(1,0,1)(0,0,2)[12] with zero mean     : 147.3092
+##  ARIMA(1,0,1)(0,0,2)[12] with non-zero mean : 149.4979
+##  ARIMA(1,0,1)(1,0,0)[12] with zero mean     : 145.4902
+##  ARIMA(1,0,1)(1,0,0)[12] with non-zero mean : 147.6003
+##  ARIMA(1,0,1)(1,0,1)[12] with zero mean     : 147.5697
+##  ARIMA(1,0,1)(1,0,1)[12] with non-zero mean : 149.7505
+##  ARIMA(1,0,1)(1,0,2)[12] with zero mean     : 149.6266
+##  ARIMA(1,0,1)(1,0,2)[12] with non-zero mean : 151.8761
+##  ARIMA(1,0,1)(2,0,0)[12] with zero mean     : 147.4832
+##  ARIMA(1,0,1)(2,0,0)[12] with non-zero mean : 149.6698
+##  ARIMA(1,0,1)(2,0,1)[12] with zero mean     : 149.7522
+##  ARIMA(1,0,1)(2,0,1)[12] with non-zero mean : 152.0014
+##  ARIMA(1,0,2)            with zero mean     : 143.1488
+##  ARIMA(1,0,2)            with non-zero mean : Inf
+##  ARIMA(1,0,2)(0,0,1)[12] with zero mean     : 143.8897
+##  ARIMA(1,0,2)(0,0,1)[12] with non-zero mean : Inf
+##  ARIMA(1,0,2)(0,0,2)[12] with zero mean     : 145.4094
+##  ARIMA(1,0,2)(0,0,2)[12] with non-zero mean : Inf
+##  ARIMA(1,0,2)(1,0,0)[12] with zero mean     : 143.5703
+##  ARIMA(1,0,2)(1,0,0)[12] with non-zero mean : Inf
+##  ARIMA(1,0,2)(1,0,1)[12] with zero mean     : 145.5406
+##  ARIMA(1,0,2)(1,0,1)[12] with non-zero mean : Inf
+##  ARIMA(1,0,2)(2,0,0)[12] with zero mean     : 145.4348
+##  ARIMA(1,0,2)(2,0,0)[12] with non-zero mean : Inf
+##  ARIMA(1,0,3)            with zero mean     : 144.878
+##  ARIMA(1,0,3)            with non-zero mean : Inf
+##  ARIMA(1,0,3)(0,0,1)[12] with zero mean     : 146.0529
+##  ARIMA(1,0,3)(0,0,1)[12] with non-zero mean : Inf
+##  ARIMA(1,0,3)(1,0,0)[12] with zero mean     : 145.7919
+##  ARIMA(1,0,3)(1,0,0)[12] with non-zero mean : Inf
+##  ARIMA(1,0,4)            with zero mean     : 147.1636
+##  ARIMA(1,0,4)            with non-zero mean : 148.6861
+##  ARIMA(2,0,0)            with zero mean     : 142.7193
+##  ARIMA(2,0,0)            with non-zero mean : 144.6739
+##  ARIMA(2,0,0)(0,0,1)[12] with zero mean     : 142.8434
+##  ARIMA(2,0,0)(0,0,1)[12] with non-zero mean : 144.8322
+##  ARIMA(2,0,0)(0,0,2)[12] with zero mean     : 144.2596
+##  ARIMA(2,0,0)(0,0,2)[12] with non-zero mean : 146.3624
+##  ARIMA(2,0,0)(1,0,0)[12] with zero mean     : 142.405
+##  ARIMA(2,0,0)(1,0,0)[12] with non-zero mean : 144.4087
+##  ARIMA(2,0,0)(1,0,1)[12] with zero mean     : 144.2087
+##  ARIMA(2,0,0)(1,0,1)[12] with non-zero mean : 146.3121
+##  ARIMA(2,0,0)(1,0,2)[12] with zero mean     : 146.5032
+##  ARIMA(2,0,0)(1,0,2)[12] with non-zero mean : 148.671
+##  ARIMA(2,0,0)(2,0,0)[12] with zero mean     : 144.186
+##  ARIMA(2,0,0)(2,0,0)[12] with non-zero mean : 146.2929
+##  ARIMA(2,0,0)(2,0,1)[12] with zero mean     : 146.5032
+##  ARIMA(2,0,0)(2,0,1)[12] with non-zero mean : 148.6714
+##  ARIMA(2,0,1)            with zero mean     : 144.6973
+##  ARIMA(2,0,1)            with non-zero mean : 146.7356
+##  ARIMA(2,0,1)(0,0,1)[12] with zero mean     : 144.9257
+##  ARIMA(2,0,1)(0,0,1)[12] with non-zero mean : 146.9983
+##  ARIMA(2,0,1)(0,0,2)[12] with zero mean     : 146.4632
+##  ARIMA(2,0,1)(0,0,2)[12] with non-zero mean : 148.6412
+##  ARIMA(2,0,1)(1,0,0)[12] with zero mean     : 144.5088
+##  ARIMA(2,0,1)(1,0,0)[12] with non-zero mean : 146.5928
+##  ARIMA(2,0,1)(1,0,1)[12] with zero mean     : 146.3824
+##  ARIMA(2,0,1)(1,0,1)[12] with non-zero mean : 148.5631
+##  ARIMA(2,0,1)(2,0,0)[12] with zero mean     : 146.3723
+##  ARIMA(2,0,1)(2,0,0)[12] with non-zero mean : 148.5551
+##  ARIMA(2,0,2)            with zero mean     : 144.9954
+##  ARIMA(2,0,2)            with non-zero mean : Inf
+##  ARIMA(2,0,2)(0,0,1)[12] with zero mean     : 147.2409
+##  ARIMA(2,0,2)(0,0,1)[12] with non-zero mean : Inf
+##  ARIMA(2,0,2)(1,0,0)[12] with zero mean     : 145.8267
+##  ARIMA(2,0,2)(1,0,0)[12] with non-zero mean : Inf
+##  ARIMA(2,0,3)            with zero mean     : 147.1903
+##  ARIMA(2,0,3)            with non-zero mean : Inf
+##  ARIMA(3,0,0)            with zero mean     : 144.7142
+##  ARIMA(3,0,0)            with non-zero mean : 146.7545
+##  ARIMA(3,0,0)(0,0,1)[12] with zero mean     : 144.9254
+##  ARIMA(3,0,0)(0,0,1)[12] with non-zero mean : 147.0012
+##  ARIMA(3,0,0)(0,0,2)[12] with zero mean     : 146.4614
+##  ARIMA(3,0,0)(0,0,2)[12] with non-zero mean : 148.6415
+##  ARIMA(3,0,0)(1,0,0)[12] with zero mean     : 144.5052
+##  ARIMA(3,0,0)(1,0,0)[12] with non-zero mean : 146.5924
+##  ARIMA(3,0,0)(1,0,1)[12] with zero mean     : 146.3749
+##  ARIMA(3,0,0)(1,0,1)[12] with non-zero mean : 148.5588
+##  ARIMA(3,0,0)(2,0,0)[12] with zero mean     : 146.3671
+##  ARIMA(3,0,0)(2,0,0)[12] with non-zero mean : 148.5526
+##  ARIMA(3,0,1)            with zero mean     : Inf
+##  ARIMA(3,0,1)            with non-zero mean : Inf
+##  ARIMA(3,0,1)(0,0,1)[12] with zero mean     : Inf
+##  ARIMA(3,0,1)(0,0,1)[12] with non-zero mean : Inf
+##  ARIMA(3,0,1)(1,0,0)[12] with zero mean     : Inf
+##  ARIMA(3,0,1)(1,0,0)[12] with non-zero mean : Inf
+##  ARIMA(3,0,2)            with zero mean     : Inf
+##  ARIMA(3,0,2)            with non-zero mean : Inf
+##  ARIMA(4,0,0)            with zero mean     : 146.9309
+##  ARIMA(4,0,0)            with non-zero mean : 149.0144
+##  ARIMA(4,0,0)(0,0,1)[12] with zero mean     : 147.2459
+##  ARIMA(4,0,0)(0,0,1)[12] with non-zero mean : 149.3792
+##  ARIMA(4,0,0)(1,0,0)[12] with zero mean     : Inf
+##  ARIMA(4,0,0)(1,0,0)[12] with non-zero mean : 148.9745
+##  ARIMA(4,0,1)            with zero mean     : Inf
+##  ARIMA(4,0,1)            with non-zero mean : Inf
+##  ARIMA(5,0,0)            with zero mean     : 148.7645
+##  ARIMA(5,0,0)            with non-zero mean : 150.8821
+## 
+## 
+## 
+##  Best model: ARIMA(2,0,0)(1,0,0)[12] with zero mean</code></pre>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="documento-bookdown---propuesta-avance-7.html#cb48-1" tabindex="-1"></a>modelPM2<span class="fl">.5</span> <span class="ot">&lt;-</span> <span class="fu">auto.arima</span>(DZ, <span class="at">trace =</span> T, <span class="at">stepwise =</span> F, <span class="at">approximation =</span>F, <span class="at">max.d =</span> <span class="dv">0</span>)</span></code></pre></div>
+<pre><code>## 
+##  ARIMA(0,0,0)            with zero mean     : 556.6962
+##  ARIMA(0,0,0)            with non-zero mean : 558.725
+##  ARIMA(0,0,0)(0,0,1)[12] with zero mean     : 554.9948
+##  ARIMA(0,0,0)(0,0,1)[12] with non-zero mean : 557.0713
+##  ARIMA(0,0,0)(0,0,2)[12] with zero mean     : 555.8209
+##  ARIMA(0,0,0)(0,0,2)[12] with non-zero mean : 557.9408
+##  ARIMA(0,0,0)(1,0,0)[12] with zero mean     : 556.1693
+##  ARIMA(0,0,0)(1,0,0)[12] with non-zero mean : 558.254
+##  ARIMA(0,0,0)(1,0,1)[12] with zero mean     : 555.972
+##  ARIMA(0,0,0)(1,0,1)[12] with non-zero mean : 558.1052
+##  ARIMA(0,0,0)(1,0,2)[12] with zero mean     : 558.0164
+##  ARIMA(0,0,0)(1,0,2)[12] with non-zero mean : 560.1957
+##  ARIMA(0,0,0)(2,0,0)[12] with zero mean     : 556.2264
+##  ARIMA(0,0,0)(2,0,0)[12] with non-zero mean : 558.322
+##  ARIMA(0,0,0)(2,0,1)[12] with zero mean     : 557.9445
+##  ARIMA(0,0,0)(2,0,1)[12] with non-zero mean : 560.118
+##  ARIMA(0,0,0)(2,0,2)[12] with zero mean     : 560.1038
+##  ARIMA(0,0,0)(2,0,2)[12] with non-zero mean : 562.3287
+##  ARIMA(0,0,1)            with zero mean     : 558.123
+##  ARIMA(0,0,1)            with non-zero mean : 560.1905
+##  ARIMA(0,0,1)(0,0,1)[12] with zero mean     : 555.4728
+##  ARIMA(0,0,1)(0,0,1)[12] with non-zero mean : 557.5772
+##  ARIMA(0,0,1)(0,0,2)[12] with zero mean     : 557.3149
+##  ARIMA(0,0,1)(0,0,2)[12] with non-zero mean : 559.4763
+##  ARIMA(0,0,1)(1,0,0)[12] with zero mean     : 556.3819
+##  ARIMA(0,0,1)(1,0,0)[12] with non-zero mean : 558.497
+##  ARIMA(0,0,1)(1,0,1)[12] with zero mean     : 557.3273
+##  ARIMA(0,0,1)(1,0,1)[12] with non-zero mean : 559.4947
+##  ARIMA(0,0,1)(1,0,2)[12] with zero mean     : 559.5718
+##  ARIMA(0,0,1)(1,0,2)[12] with non-zero mean : 561.7944
+##  ARIMA(0,0,1)(2,0,0)[12] with zero mean     : 557.6033
+##  ARIMA(0,0,1)(2,0,0)[12] with non-zero mean : 559.7437
+##  ARIMA(0,0,1)(2,0,1)[12] with zero mean     : 559.5571
+##  ARIMA(0,0,1)(2,0,1)[12] with non-zero mean : 561.776
+##  ARIMA(0,0,1)(2,0,2)[12] with zero mean     : 561.8337
+##  ARIMA(0,0,1)(2,0,2)[12] with non-zero mean : 564.1057
+##  ARIMA(0,0,2)            with zero mean     : 559.83
+##  ARIMA(0,0,2)            with non-zero mean : 561.9053
+##  ARIMA(0,0,2)(0,0,1)[12] with zero mean     : 557.0734
+##  ARIMA(0,0,2)(0,0,1)[12] with non-zero mean : 559.1744
+##  ARIMA(0,0,2)(0,0,2)[12] with zero mean     : 558.8328
+##  ARIMA(0,0,2)(0,0,2)[12] with non-zero mean : 560.9825
+##  ARIMA(0,0,2)(1,0,0)[12] with zero mean     : 558.0914
+##  ARIMA(0,0,2)(1,0,0)[12] with non-zero mean : 560.2147
+##  ARIMA(0,0,2)(1,0,1)[12] with zero mean     : 558.8075
+##  ARIMA(0,0,2)(1,0,1)[12] with non-zero mean : 560.9663
+##  ARIMA(0,0,2)(1,0,2)[12] with zero mean     : 561.1159
+##  ARIMA(0,0,2)(1,0,2)[12] with non-zero mean : 563.3323
+##  ARIMA(0,0,2)(2,0,0)[12] with zero mean     : 559.3574
+##  ARIMA(0,0,2)(2,0,0)[12] with non-zero mean : 561.4947
+##  ARIMA(0,0,2)(2,0,1)[12] with zero mean     : 561.1045
+##  ARIMA(0,0,2)(2,0,1)[12] with non-zero mean : 563.3174
+##  ARIMA(0,0,3)            with zero mean     : 560.5263
+##  ARIMA(0,0,3)            with non-zero mean : 562.3911
+##  ARIMA(0,0,3)(0,0,1)[12] with zero mean     : 558.3859
+##  ARIMA(0,0,3)(0,0,1)[12] with non-zero mean : 560.3899
+##  ARIMA(0,0,3)(0,0,2)[12] with zero mean     : 560.1954
+##  ARIMA(0,0,3)(0,0,2)[12] with non-zero mean : 562.2149
+##  ARIMA(0,0,3)(1,0,0)[12] with zero mean     : 559.2853
+##  ARIMA(0,0,3)(1,0,0)[12] with non-zero mean : 561.3161
+##  ARIMA(0,0,3)(1,0,1)[12] with zero mean     : 560.1847
+##  ARIMA(0,0,3)(1,0,1)[12] with non-zero mean : 562.2271
+##  ARIMA(0,0,3)(2,0,0)[12] with zero mean     : 560.6328
+##  ARIMA(0,0,3)(2,0,0)[12] with non-zero mean : 562.6201
+##  ARIMA(0,0,4)            with zero mean     : 558.119
+##  ARIMA(0,0,4)            with non-zero mean : Inf
+##  ARIMA(0,0,4)(0,0,1)[12] with zero mean     : 557.5614
+##  ARIMA(0,0,4)(0,0,1)[12] with non-zero mean : 559.3856
+##  ARIMA(0,0,4)(1,0,0)[12] with zero mean     : 558.3479
+##  ARIMA(0,0,4)(1,0,0)[12] with non-zero mean : 560.1675
+##  ARIMA(0,0,5)            with zero mean     : 560.4307
+##  ARIMA(0,0,5)            with non-zero mean : Inf
+##  ARIMA(1,0,0)            with zero mean     : 558.1902
+##  ARIMA(1,0,0)            with non-zero mean : 560.2614
+##  ARIMA(1,0,0)(0,0,1)[12] with zero mean     : 555.6888
+##  ARIMA(1,0,0)(0,0,1)[12] with non-zero mean : 557.8029
+##  ARIMA(1,0,0)(0,0,2)[12] with zero mean     : 557.4386
+##  ARIMA(1,0,0)(0,0,2)[12] with non-zero mean : 559.6059
+##  ARIMA(1,0,0)(1,0,0)[12] with zero mean     : 556.6318
+##  ARIMA(1,0,0)(1,0,0)[12] with non-zero mean : 558.7568
+##  ARIMA(1,0,0)(1,0,1)[12] with zero mean     : 557.4654
+##  ARIMA(1,0,0)(1,0,1)[12] with non-zero mean : 559.6399
+##  ARIMA(1,0,0)(1,0,2)[12] with zero mean     : 559.6964
+##  ARIMA(1,0,0)(1,0,2)[12] with non-zero mean : 561.9245
+##  ARIMA(1,0,0)(2,0,0)[12] with zero mean     : 557.7243
+##  ARIMA(1,0,0)(2,0,0)[12] with non-zero mean : 559.8707
+##  ARIMA(1,0,0)(2,0,1)[12] with zero mean     : 559.6742
+##  ARIMA(1,0,0)(2,0,1)[12] with non-zero mean : 561.8981
+##  ARIMA(1,0,0)(2,0,2)[12] with zero mean     : Inf
+##  ARIMA(1,0,0)(2,0,2)[12] with non-zero mean : Inf
+##  ARIMA(1,0,1)            with zero mean     : 555.2443
+##  ARIMA(1,0,1)            with non-zero mean : Inf
+##  ARIMA(1,0,1)(0,0,1)[12] with zero mean     : 553.6782
+##  ARIMA(1,0,1)(0,0,1)[12] with non-zero mean : Inf
+##  ARIMA(1,0,1)(0,0,2)[12] with zero mean     : 555.0538
+##  ARIMA(1,0,1)(0,0,2)[12] with non-zero mean : Inf
+##  ARIMA(1,0,1)(1,0,0)[12] with zero mean     : 554.62
+##  ARIMA(1,0,1)(1,0,0)[12] with non-zero mean : Inf
+##  ARIMA(1,0,1)(1,0,1)[12] with zero mean     : 554.9717
+##  ARIMA(1,0,1)(1,0,1)[12] with non-zero mean : Inf
+##  ARIMA(1,0,1)(1,0,2)[12] with zero mean     : 557.2765
+##  ARIMA(1,0,1)(1,0,2)[12] with non-zero mean : Inf
+##  ARIMA(1,0,1)(2,0,0)[12] with zero mean     : 555.6756
+##  ARIMA(1,0,1)(2,0,0)[12] with non-zero mean : Inf
+##  ARIMA(1,0,1)(2,0,1)[12] with zero mean     : 557.2663
+##  ARIMA(1,0,1)(2,0,1)[12] with non-zero mean : Inf
+##  ARIMA(1,0,2)            with zero mean     : 562.0203
+##  ARIMA(1,0,2)            with non-zero mean : 564.1904
+##  ARIMA(1,0,2)(0,0,1)[12] with zero mean     : 559.3161
+##  ARIMA(1,0,2)(0,0,1)[12] with non-zero mean : 561.5246
+##  ARIMA(1,0,2)(0,0,2)[12] with zero mean     : Inf
+##  ARIMA(1,0,2)(0,0,2)[12] with non-zero mean : Inf
+##  ARIMA(1,0,2)(1,0,0)[12] with zero mean     : 556.7852
+##  ARIMA(1,0,2)(1,0,0)[12] with non-zero mean : Inf
+##  ARIMA(1,0,2)(1,0,1)[12] with zero mean     : 557.2608
+##  ARIMA(1,0,2)(1,0,1)[12] with non-zero mean : Inf
+##  ARIMA(1,0,2)(2,0,0)[12] with zero mean     : 557.9885
+##  ARIMA(1,0,2)(2,0,0)[12] with non-zero mean : Inf
+##  ARIMA(1,0,3)            with zero mean     : 559.1184
+##  ARIMA(1,0,3)            with non-zero mean : Inf
+##  ARIMA(1,0,3)(0,0,1)[12] with zero mean     : 558.0502
+##  ARIMA(1,0,3)(0,0,1)[12] with non-zero mean : Inf
+##  ARIMA(1,0,3)(1,0,0)[12] with zero mean     : 558.8921
+##  ARIMA(1,0,3)(1,0,0)[12] with non-zero mean : Inf
+##  ARIMA(1,0,4)            with zero mean     : 560.377
+##  ARIMA(1,0,4)            with non-zero mean : Inf
+##  ARIMA(2,0,0)            with zero mean     : 560.1541
+##  ARIMA(2,0,0)            with non-zero mean : 562.2681
+##  ARIMA(2,0,0)(0,0,1)[12] with zero mean     : 557.5559
+##  ARIMA(2,0,0)(0,0,1)[12] with non-zero mean : 559.7118
+##  ARIMA(2,0,0)(0,0,2)[12] with zero mean     : 559.3264
+##  ARIMA(2,0,0)(0,0,2)[12] with non-zero mean : 561.5348
+##  ARIMA(2,0,0)(1,0,0)[12] with zero mean     : 558.5399
+##  ARIMA(2,0,0)(1,0,0)[12] with non-zero mean : 560.7098
+##  ARIMA(2,0,0)(1,0,1)[12] with zero mean     : 559.3292
+##  ARIMA(2,0,0)(1,0,1)[12] with non-zero mean : 561.5461
+##  ARIMA(2,0,0)(1,0,2)[12] with zero mean     : 561.6284
+##  ARIMA(2,0,0)(1,0,2)[12] with non-zero mean : 563.9018
+##  ARIMA(2,0,0)(2,0,0)[12] with zero mean     : 559.7361
+##  ARIMA(2,0,0)(2,0,0)[12] with non-zero mean : 561.9257
+##  ARIMA(2,0,0)(2,0,1)[12] with zero mean     : 561.6111
+##  ARIMA(2,0,0)(2,0,1)[12] with non-zero mean : 563.8808
+##  ARIMA(2,0,1)            with zero mean     : 557.3734
+##  ARIMA(2,0,1)            with non-zero mean : Inf
+##  ARIMA(2,0,1)(0,0,1)[12] with zero mean     : 555.8727
+##  ARIMA(2,0,1)(0,0,1)[12] with non-zero mean : Inf
+##  ARIMA(2,0,1)(0,0,2)[12] with zero mean     : 557.3271
+##  ARIMA(2,0,1)(0,0,2)[12] with non-zero mean : Inf
+##  ARIMA(2,0,1)(1,0,0)[12] with zero mean     : 556.7734
+##  ARIMA(2,0,1)(1,0,0)[12] with non-zero mean : Inf
+##  ARIMA(2,0,1)(1,0,1)[12] with zero mean     : 557.2575
+##  ARIMA(2,0,1)(1,0,1)[12] with non-zero mean : Inf
+##  ARIMA(2,0,1)(2,0,0)[12] with zero mean     : Inf
+##  ARIMA(2,0,1)(2,0,0)[12] with non-zero mean : Inf
+##  ARIMA(2,0,2)            with zero mean     : 559.3064
+##  ARIMA(2,0,2)            with non-zero mean : Inf
+##  ARIMA(2,0,2)(0,0,1)[12] with zero mean     : 558.1813
+##  ARIMA(2,0,2)(0,0,1)[12] with non-zero mean : Inf
+##  ARIMA(2,0,2)(1,0,0)[12] with zero mean     : Inf
+##  ARIMA(2,0,2)(1,0,0)[12] with non-zero mean : Inf
+##  ARIMA(2,0,3)            with zero mean     : 561.1688
+##  ARIMA(2,0,3)            with non-zero mean : Inf
+##  ARIMA(3,0,0)            with zero mean     : 562.0724
+##  ARIMA(3,0,0)            with non-zero mean : 564.2108
+##  ARIMA(3,0,0)(0,0,1)[12] with zero mean     : 559.5897
+##  ARIMA(3,0,0)(0,0,1)[12] with non-zero mean : 561.7722
+##  ARIMA(3,0,0)(0,0,2)[12] with zero mean     : 561.325
+##  ARIMA(3,0,0)(0,0,2)[12] with non-zero mean : 563.5506
+##  ARIMA(3,0,0)(1,0,0)[12] with zero mean     : 560.6272
+##  ARIMA(3,0,0)(1,0,0)[12] with non-zero mean : 562.8318
+##  ARIMA(3,0,0)(1,0,1)[12] with zero mean     : 561.3355
+##  ARIMA(3,0,0)(1,0,1)[12] with non-zero mean : 563.5741
+##  ARIMA(3,0,0)(2,0,0)[12] with zero mean     : 561.7926
+##  ARIMA(3,0,0)(2,0,0)[12] with non-zero mean : 563.9984
+##  ARIMA(3,0,1)            with zero mean     : 559.1624
+##  ARIMA(3,0,1)            with non-zero mean : Inf
+##  ARIMA(3,0,1)(0,0,1)[12] with zero mean     : 558.1093
+##  ARIMA(3,0,1)(0,0,1)[12] with non-zero mean : Inf
+##  ARIMA(3,0,1)(1,0,0)[12] with zero mean     : 558.9814
+##  ARIMA(3,0,1)(1,0,0)[12] with non-zero mean : Inf
+##  ARIMA(3,0,2)            with zero mean     : 561.873
+##  ARIMA(3,0,2)            with non-zero mean : Inf
+##  ARIMA(4,0,0)            with zero mean     : 560.0746
+##  ARIMA(4,0,0)            with non-zero mean : 562.1384
+##  ARIMA(4,0,0)(0,0,1)[12] with zero mean     : 557.9915
+##  ARIMA(4,0,0)(0,0,1)[12] with non-zero mean : 560.0895
+##  ARIMA(4,0,0)(1,0,0)[12] with zero mean     : 558.7407
+##  ARIMA(4,0,0)(1,0,0)[12] with non-zero mean : 560.8703
+##  ARIMA(4,0,1)            with zero mean     : 562.0005
+##  ARIMA(4,0,1)            with non-zero mean : 564.1499
+##  ARIMA(5,0,0)            with zero mean     : 562.1593
+##  ARIMA(5,0,0)            with non-zero mean : 564.3122
+## 
+## 
+## 
+##  Best model: ARIMA(1,0,1)(0,0,1)[12] with zero mean</code></pre>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="documento-bookdown---propuesta-avance-7.html#cb50-1" tabindex="-1"></a><span class="fu">print</span>(modelCO)</span></code></pre></div>
+<pre><code>## Series: DY 
+## ARIMA(2,0,0)(1,0,0)[12] with zero mean 
+## 
+## Coefficients:
+##          ar1      ar2    sar1
+##       0.4684  -0.3869  0.1957
+## s.e.  0.1084   0.1052  0.1214
+## 
+## sigma^2 = 0.2957:  log likelihood = -66.95
+## AIC=141.9   AICc=142.41   BIC=151.62</code></pre>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="documento-bookdown---propuesta-avance-7.html#cb52-1" tabindex="-1"></a><span class="fu">print</span>(modelPM2<span class="fl">.5</span>)</span></code></pre></div>
+<pre><code>## Series: DZ 
+## ARIMA(1,0,1)(0,0,1)[12] with zero mean 
+## 
+## Coefficients:
+##          ar1      ma1    sma1
+##       0.7908  -0.9623  0.2713
+## s.e.  0.0948   0.0502  0.1396
+## 
+## sigma^2 = 39.35:  log likelihood = -272.59
+## AIC=553.17   AICc=553.68   BIC=562.9</code></pre>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="documento-bookdown---propuesta-avance-7.html#cb54-1" tabindex="-1"></a><span class="fu">checkresiduals</span>(modelCO)</span></code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-26-1.png" width="672" /></p>
+<pre><code>## 
+##  Ljung-Box test
+## 
+## data:  Residuals from ARIMA(2,0,0)(1,0,0)[12] with zero mean
+## Q* = 20.491, df = 14, p-value = 0.1154
+## 
+## Model df: 3.   Total lags used: 17</code></pre>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="documento-bookdown---propuesta-avance-7.html#cb56-1" tabindex="-1"></a><span class="fu">checkresiduals</span>(modelPM2<span class="fl">.5</span>)</span></code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-27-1.png" width="672" /></p>
+<pre><code>## 
+##  Ljung-Box test
+## 
+## data:  Residuals from ARIMA(1,0,1)(0,0,1)[12] with zero mean
+## Q* = 26.57, df = 14, p-value = 0.02188
+## 
+## Model df: 3.   Total lags used: 17</code></pre>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="documento-bookdown---propuesta-avance-7.html#cb58-1" tabindex="-1"></a>mod1 <span class="ot">&lt;-</span> <span class="fu">forecast</span>(modelCO, <span class="dv">8</span>, <span class="at">level =</span> <span class="dv">95</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="documento-bookdown---propuesta-avance-7.html#cb59-1" tabindex="-1"></a>mod2 <span class="ot">&lt;-</span> <span class="fu">forecast</span>(modelPM2<span class="fl">.5</span>, <span class="dv">8</span>, <span class="at">level =</span> <span class="dv">95</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="documento-bookdown---propuesta-avance-7.html#cb60-1" tabindex="-1"></a>last_Y <span class="ot">=</span> Y[<span class="dv">85</span>]</span>
+<span id="cb60-2"><a href="documento-bookdown---propuesta-avance-7.html#cb60-2" tabindex="-1"></a>pred_mod1 <span class="ot">=</span> mod1<span class="sc">$</span>mean</span>
+<span id="cb60-3"><a href="documento-bookdown---propuesta-avance-7.html#cb60-3" tabindex="-1"></a>pron_real <span class="ot">=</span> <span class="fu">cumsum</span>(pred_mod1) <span class="sc">+</span> last_Y</span></code></pre></div>
+<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="documento-bookdown---propuesta-avance-7.html#cb61-1" tabindex="-1"></a>pron_real_ts <span class="ot">=</span> <span class="fu">ts</span>(pron_real, <span class="at">start =</span><span class="fu">c</span>(<span class="dv">2019</span>,<span class="dv">2</span>), <span class="at">frequency=</span><span class="dv">12</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="documento-bookdown---propuesta-avance-7.html#cb62-1" tabindex="-1"></a><span class="fu">ts.plot</span>(Y, pron_real_ts, <span class="at">lty =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">3</span>), <span class="at">col =</span> <span class="fu">c</span>(<span class="dv">5</span>,<span class="dv">2</span>))</span></code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-32-1.png" width="672" /></p>
+<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="documento-bookdown---propuesta-avance-7.html#cb63-1" tabindex="-1"></a>last_Z <span class="ot">=</span> Z[<span class="dv">85</span>]</span>
+<span id="cb63-2"><a href="documento-bookdown---propuesta-avance-7.html#cb63-2" tabindex="-1"></a>pred_mod2 <span class="ot">=</span> mod2<span class="sc">$</span>mean</span>
+<span id="cb63-3"><a href="documento-bookdown---propuesta-avance-7.html#cb63-3" tabindex="-1"></a>pron_real2 <span class="ot">=</span> <span class="fu">cumsum</span>(pred_mod2) <span class="sc">+</span> last_Z</span></code></pre></div>
+<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="documento-bookdown---propuesta-avance-7.html#cb64-1" tabindex="-1"></a>pron_real_ts2 <span class="ot">=</span> <span class="fu">ts</span>(pron_real2, <span class="at">start =</span><span class="fu">c</span>(<span class="dv">2019</span>,<span class="dv">2</span>), <span class="at">frequency=</span><span class="dv">12</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="documento-bookdown---propuesta-avance-7.html#cb65-1" tabindex="-1"></a><span class="fu">ts.plot</span>(Z, pron_real_ts2, <span class="at">lty =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">3</span>), <span class="at">col =</span> <span class="fu">c</span>(<span class="dv">5</span>,<span class="dv">2</span>))</span></code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-35-1.png" width="672" /></p>
+<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="documento-bookdown---propuesta-avance-7.html#cb66-1" tabindex="-1"></a><span class="fu">library</span>(dygraphs)</span>
+<span id="cb66-2"><a href="documento-bookdown---propuesta-avance-7.html#cb66-2" tabindex="-1"></a></span>
+<span id="cb66-3"><a href="documento-bookdown---propuesta-avance-7.html#cb66-3" tabindex="-1"></a>graf_inter <span class="ot">=</span> <span class="fu">cbind</span>(Y,pron_real_ts)</span>
+<span id="cb66-4"><a href="documento-bookdown---propuesta-avance-7.html#cb66-4" tabindex="-1"></a></span>
+<span id="cb66-5"><a href="documento-bookdown---propuesta-avance-7.html#cb66-5" tabindex="-1"></a><span class="fu">dygraph</span>(graf_inter)</span></code></pre></div>
+<div class="dygraphs html-widget html-fill-item" id="htmlwidget-7add3aee49657b149d97" style="width:672px;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-7add3aee49657b149d97">{"x":{"attrs":{"labels":["month","Y","pron_real_ts"],"legend":"auto","retainDateWindow":false,"axes":{"x":{"pixelsPerLabel":60}}},"scale":"monthly","annotations":[],"shadings":[],"events":[],"format":"date","data":[["2012-01-01T00:00:00.000Z","2012-02-01T00:00:00.000Z","2012-03-01T00:00:00.000Z","2012-04-01T00:00:00.000Z","2012-05-01T00:00:00.000Z","2012-06-01T00:00:00.000Z","2012-07-01T00:00:00.000Z","2012-08-01T00:00:00.000Z","2012-09-01T00:00:00.000Z","2012-10-01T00:00:00.000Z","2012-11-01T00:00:00.000Z","2012-12-01T00:00:00.000Z","2013-01-01T00:00:00.000Z","2013-02-01T00:00:00.000Z","2013-03-01T00:00:00.000Z","2013-04-01T00:00:00.000Z","2013-05-01T00:00:00.000Z","2013-06-01T00:00:00.000Z","2013-07-01T00:00:00.000Z","2013-08-01T00:00:00.000Z","2013-09-01T00:00:00.000Z","2013-10-01T00:00:00.000Z","2013-11-01T00:00:00.000Z","2013-12-01T00:00:00.000Z","2014-01-01T00:00:00.000Z","2014-02-01T00:00:00.000Z","2014-03-01T00:00:00.000Z","2014-04-01T00:00:00.000Z","2014-05-01T00:00:00.000Z","2014-06-01T00:00:00.000Z","2014-07-01T00:00:00.000Z","2014-08-01T00:00:00.000Z","2014-09-01T00:00:00.000Z","2014-10-01T00:00:00.000Z","2014-11-01T00:00:00.000Z","2014-12-01T00:00:00.000Z","2015-01-01T00:00:00.000Z","2015-02-01T00:00:00.000Z","2015-03-01T00:00:00.000Z","2015-04-01T00:00:00.000Z","2015-05-01T00:00:00.000Z","2015-06-01T00:00:00.000Z","2015-07-01T00:00:00.000Z","2015-08-01T00:00:00.000Z","2015-09-01T00:00:00.000Z","2015-10-01T00:00:00.000Z","2015-11-01T00:00:00.000Z","2015-12-01T00:00:00.000Z","2016-01-01T00:00:00.000Z","2016-02-01T00:00:00.000Z","2016-03-01T00:00:00.000Z","2016-04-01T00:00:00.000Z","2016-05-01T00:00:00.000Z","2016-06-01T00:00:00.000Z","2016-07-01T00:00:00.000Z","2016-08-01T00:00:00.000Z","2016-09-01T00:00:00.000Z","2016-10-01T00:00:00.000Z","2016-11-01T00:00:00.000Z","2016-12-01T00:00:00.000Z","2017-01-01T00:00:00.000Z","2017-02-01T00:00:00.000Z","2017-03-01T00:00:00.000Z","2017-04-01T00:00:00.000Z","2017-05-01T00:00:00.000Z","2017-06-01T00:00:00.000Z","2017-07-01T00:00:00.000Z","2017-08-01T00:00:00.000Z","2017-09-01T00:00:00.000Z","2017-10-01T00:00:00.000Z","2017-11-01T00:00:00.000Z","2017-12-01T00:00:00.000Z","2018-01-01T00:00:00.000Z","2018-02-01T00:00:00.000Z","2018-03-01T00:00:00.000Z","2018-04-01T00:00:00.000Z","2018-05-01T00:00:00.000Z","2018-06-01T00:00:00.000Z","2018-07-01T00:00:00.000Z","2018-08-01T00:00:00.000Z","2018-09-01T00:00:00.000Z","2018-10-01T00:00:00.000Z","2018-11-01T00:00:00.000Z","2018-12-01T00:00:00.000Z","2019-01-01T00:00:00.000Z","2019-02-01T00:00:00.000Z","2019-03-01T00:00:00.000Z","2019-04-01T00:00:00.000Z","2019-05-01T00:00:00.000Z","2019-06-01T00:00:00.000Z","2019-07-01T00:00:00.000Z","2019-08-01T00:00:00.000Z","2019-09-01T00:00:00.000Z"],[2.3,1.6,0.7,1.2,1,0.9,0.5,0.5,0.8,1.2,1.2,1.1,1,0.6,0.4,0.2,0.2,0.2,0.1,0.1,0.1,0.7,0.5,0.3,0.2,0,0.2,0.5,0.7,0.9,0.8,0.7,0.2,0.4,1.6,2.2,2.1,1,1.2,1.1,0.6,0.4,0.6,0.9,1.5,1.9,3.3,4.1,2.6,1.3,1.1,1.4,1.6,1.1,1.6,2.9,4.3,5,3.8,3.8,2.8,1.2,0.9,0.9,0.9,0.8,0.6,0.5,1,1.5,1.5,0.8,0.4,0.4,1,1.1,1.4,1.7,2,3.1,4.9,4.8,3.3,3.3,4.6,null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,5.192577445020531,5.054290618368909,4.724808918278234,4.718968669593144,4.882499730422722,5.015287517424983,5.224716313274772,5.545601651054326]]},"evals":[],"jsHooks":[]}</script>
+<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="documento-bookdown---propuesta-avance-7.html#cb67-1" tabindex="-1"></a><span class="fu">library</span>(dygraphs)</span>
+<span id="cb67-2"><a href="documento-bookdown---propuesta-avance-7.html#cb67-2" tabindex="-1"></a></span>
+<span id="cb67-3"><a href="documento-bookdown---propuesta-avance-7.html#cb67-3" tabindex="-1"></a>graf_inter <span class="ot">=</span> <span class="fu">cbind</span>(Z,pron_real_ts2)</span>
+<span id="cb67-4"><a href="documento-bookdown---propuesta-avance-7.html#cb67-4" tabindex="-1"></a></span>
+<span id="cb67-5"><a href="documento-bookdown---propuesta-avance-7.html#cb67-5" tabindex="-1"></a><span class="fu">dygraph</span>(graf_inter)</span></code></pre></div>
+<div class="dygraphs html-widget html-fill-item" id="htmlwidget-cb9b9b57c5edc646f971" style="width:672px;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-cb9b9b57c5edc646f971">{"x":{"attrs":{"labels":["month","Z","pron_real_ts2"],"legend":"auto","retainDateWindow":false,"axes":{"x":{"pixelsPerLabel":60}}},"scale":"monthly","annotations":[],"shadings":[],"events":[],"format":"date","data":[["2012-01-01T00:00:00.000Z","2012-02-01T00:00:00.000Z","2012-03-01T00:00:00.000Z","2012-04-01T00:00:00.000Z","2012-05-01T00:00:00.000Z","2012-06-01T00:00:00.000Z","2012-07-01T00:00:00.000Z","2012-08-01T00:00:00.000Z","2012-09-01T00:00:00.000Z","2012-10-01T00:00:00.000Z","2012-11-01T00:00:00.000Z","2012-12-01T00:00:00.000Z","2013-01-01T00:00:00.000Z","2013-02-01T00:00:00.000Z","2013-03-01T00:00:00.000Z","2013-04-01T00:00:00.000Z","2013-05-01T00:00:00.000Z","2013-06-01T00:00:00.000Z","2013-07-01T00:00:00.000Z","2013-08-01T00:00:00.000Z","2013-09-01T00:00:00.000Z","2013-10-01T00:00:00.000Z","2013-11-01T00:00:00.000Z","2013-12-01T00:00:00.000Z","2014-01-01T00:00:00.000Z","2014-02-01T00:00:00.000Z","2014-03-01T00:00:00.000Z","2014-04-01T00:00:00.000Z","2014-05-01T00:00:00.000Z","2014-06-01T00:00:00.000Z","2014-07-01T00:00:00.000Z","2014-08-01T00:00:00.000Z","2014-09-01T00:00:00.000Z","2014-10-01T00:00:00.000Z","2014-11-01T00:00:00.000Z","2014-12-01T00:00:00.000Z","2015-01-01T00:00:00.000Z","2015-02-01T00:00:00.000Z","2015-03-01T00:00:00.000Z","2015-04-01T00:00:00.000Z","2015-05-01T00:00:00.000Z","2015-06-01T00:00:00.000Z","2015-07-01T00:00:00.000Z","2015-08-01T00:00:00.000Z","2015-09-01T00:00:00.000Z","2015-10-01T00:00:00.000Z","2015-11-01T00:00:00.000Z","2015-12-01T00:00:00.000Z","2016-01-01T00:00:00.000Z","2016-02-01T00:00:00.000Z","2016-03-01T00:00:00.000Z","2016-04-01T00:00:00.000Z","2016-05-01T00:00:00.000Z","2016-06-01T00:00:00.000Z","2016-07-01T00:00:00.000Z","2016-08-01T00:00:00.000Z","2016-09-01T00:00:00.000Z","2016-10-01T00:00:00.000Z","2016-11-01T00:00:00.000Z","2016-12-01T00:00:00.000Z","2017-01-01T00:00:00.000Z","2017-02-01T00:00:00.000Z","2017-03-01T00:00:00.000Z","2017-04-01T00:00:00.000Z","2017-05-01T00:00:00.000Z","2017-06-01T00:00:00.000Z","2017-07-01T00:00:00.000Z","2017-08-01T00:00:00.000Z","2017-09-01T00:00:00.000Z","2017-10-01T00:00:00.000Z","2017-11-01T00:00:00.000Z","2017-12-01T00:00:00.000Z","2018-01-01T00:00:00.000Z","2018-02-01T00:00:00.000Z","2018-03-01T00:00:00.000Z","2018-04-01T00:00:00.000Z","2018-05-01T00:00:00.000Z","2018-06-01T00:00:00.000Z","2018-07-01T00:00:00.000Z","2018-08-01T00:00:00.000Z","2018-09-01T00:00:00.000Z","2018-10-01T00:00:00.000Z","2018-11-01T00:00:00.000Z","2018-12-01T00:00:00.000Z","2019-01-01T00:00:00.000Z","2019-02-01T00:00:00.000Z","2019-03-01T00:00:00.000Z","2019-04-01T00:00:00.000Z","2019-05-01T00:00:00.000Z","2019-06-01T00:00:00.000Z","2019-07-01T00:00:00.000Z","2019-08-01T00:00:00.000Z","2019-09-01T00:00:00.000Z"],[14,19,13,2,2,2,6,4,1,8,7,5,5,5,3,1,3,2,2,1,3,4,5,2,7,5,1,1,1,3,6,3,9,8,7,17,16,23,12,13,9,6,7,13,11,22,20,43,37,17,14,8,11,19,16,21,18,32,32,28,25,12,13,8,5,5,8,5,3,8,25,11,6,3,2,15,11,13,23,23,32,45,36,31,30,null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,26.95831098712036,24.43672341064499,26.48988417886945,24.34879857187484,23.99735972833949,25.58031158502555,25.19298785838018,27.20989197215969]]},"evals":[],"jsHooks":[]}</script>
+<div id="redes-neuronales-elman-y-jordan-aplicado-a-los-datos-co---pm2.5" class="section level2 hasAnchor" number="7.1">
+<h2><span class="header-section-number">7.1</span> redes neuronales ELMAN y Jordan APLICADO A LOS DATOS CO - PM2.5<a href="documento-bookdown---propuesta-avance-7.html#redes-neuronales-elman-y-jordan-aplicado-a-los-datos-co---pm2.5" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="documento-bookdown---propuesta-avance-7.html#cb68-1" tabindex="-1"></a><span class="fu">require</span>(RSNNS)</span></code></pre></div>
+<pre><code>## Cargando paquete requerido: RSNNS</code></pre>
+<pre><code>## Cargando paquete requerido: Rcpp</code></pre>
+<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb71-1"><a href="documento-bookdown---propuesta-avance-7.html#cb71-1" tabindex="-1"></a><span class="fu">require</span>(Rcpp)</span></code></pre></div>
+<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb72-1"><a href="documento-bookdown---propuesta-avance-7.html#cb72-1" tabindex="-1"></a><span class="fu">require</span>(quantmod)</span></code></pre></div>
+<pre><code>## Cargando paquete requerido: quantmod</code></pre>
+<pre><code>## Cargando paquete requerido: xts</code></pre>
+<pre><code>## Cargando paquete requerido: zoo</code></pre>
+<pre><code>## 
+## Adjuntando el paquete: &#39;zoo&#39;</code></pre>
+<pre><code>## The following objects are masked from &#39;package:base&#39;:
+## 
+##     as.Date, as.Date.numeric</code></pre>
+<pre><code>## 
+## ######################### Warning from &#39;xts&#39; package ##########################
+## #                                                                             #
+## # The dplyr lag() function breaks how base R&#39;s lag() function is supposed to  #
+## # work, which breaks lag(my_xts). Calls to lag(my_xts) that you type or       #
+## # source() into this session won&#39;t work correctly.                            #
+## #                                                                             #
+## # Use stats::lag() to make sure you&#39;re not using dplyr::lag(), or you can add #
+## # conflictRules(&#39;dplyr&#39;, exclude = &#39;lag&#39;) to your .Rprofile to stop           #
+## # dplyr from breaking base R&#39;s lag() function.                                #
+## #                                                                             #
+## # Code in packages is not affected. It&#39;s protected by R&#39;s namespace mechanism #
+## # Set `options(xts.warn_dplyr_breaks_lag = FALSE)` to suppress this warning.  #
+## #                                                                             #
+## ###############################################################################</code></pre>
+<pre><code>## 
+## Adjuntando el paquete: &#39;xts&#39;</code></pre>
+<pre><code>## The following objects are masked from &#39;package:dplyr&#39;:
+## 
+##     first, last</code></pre>
+<pre><code>## Cargando paquete requerido: TTR</code></pre>
+<div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb82-1"><a href="documento-bookdown---propuesta-avance-7.html#cb82-1" tabindex="-1"></a><span class="fu">require</span>(xts)</span></code></pre></div>
+<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb83-1"><a href="documento-bookdown---propuesta-avance-7.html#cb83-1" tabindex="-1"></a><span class="fu">require</span>(zoo)</span></code></pre></div>
+<div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb84-1"><a href="documento-bookdown---propuesta-avance-7.html#cb84-1" tabindex="-1"></a><span class="fu">require</span>(base)</span></code></pre></div>
+<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb85-1"><a href="documento-bookdown---propuesta-avance-7.html#cb85-1" tabindex="-1"></a><span class="fu">require</span>(TTR)</span></code></pre></div>
+<div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb86-1"><a href="documento-bookdown---propuesta-avance-7.html#cb86-1" tabindex="-1"></a>N <span class="ot">&lt;-</span> <span class="fu">as.ts</span>(Y,F)</span>
+<span id="cb86-2"><a href="documento-bookdown---propuesta-avance-7.html#cb86-2" tabindex="-1"></a>S <span class="ot">&lt;-</span> (N<span class="sc">-</span><span class="fu">min</span>(N))<span class="sc">/</span>(<span class="fu">max</span>(N)<span class="sc">-</span><span class="fu">min</span>(N))  </span>
+<span id="cb86-3"><a href="documento-bookdown---propuesta-avance-7.html#cb86-3" tabindex="-1"></a><span class="fu">plot</span>(S)</span></code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-45-1.png" width="672" /></p>
+<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb87-1"><a href="documento-bookdown---propuesta-avance-7.html#cb87-1" tabindex="-1"></a>M <span class="ot">&lt;-</span> <span class="fu">as.ts</span>(Z,F)</span>
+<span id="cb87-2"><a href="documento-bookdown---propuesta-avance-7.html#cb87-2" tabindex="-1"></a>H <span class="ot">&lt;-</span> (M<span class="sc">-</span><span class="fu">min</span>(M))<span class="sc">/</span>(<span class="fu">max</span>(M)<span class="sc">-</span><span class="fu">min</span>(M))  </span>
+<span id="cb87-3"><a href="documento-bookdown---propuesta-avance-7.html#cb87-3" tabindex="-1"></a><span class="fu">plot</span>(H)</span></code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-46-1.png" width="672" /></p>
+<div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb88-1"><a href="documento-bookdown---propuesta-avance-7.html#cb88-1" tabindex="-1"></a>tamano_total <span class="ot">&lt;-</span> <span class="fu">length</span>(S)</span>
+<span id="cb88-2"><a href="documento-bookdown---propuesta-avance-7.html#cb88-2" tabindex="-1"></a>tamano_total</span></code></pre></div>
+<pre><code>## [1] 85</code></pre>
+<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb90-1"><a href="documento-bookdown---propuesta-avance-7.html#cb90-1" tabindex="-1"></a>tamano_total <span class="ot">&lt;-</span> <span class="fu">length</span>(H)</span>
+<span id="cb90-2"><a href="documento-bookdown---propuesta-avance-7.html#cb90-2" tabindex="-1"></a>tamano_total</span></code></pre></div>
+<pre><code>## [1] 85</code></pre>
+<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb92-1"><a href="documento-bookdown---propuesta-avance-7.html#cb92-1" tabindex="-1"></a>tamano_trainCO <span class="ot">&lt;-</span> <span class="fu">round</span>(tamano_total<span class="sc">*</span><span class="fl">0.75</span>, <span class="at">digits =</span> <span class="dv">0</span>)</span>
+<span id="cb92-2"><a href="documento-bookdown---propuesta-avance-7.html#cb92-2" tabindex="-1"></a>trainCO <span class="ot">&lt;-</span> <span class="dv">0</span><span class="sc">:</span>(tamano_trainCO<span class="dv">-1</span>)</span>
+<span id="cb92-3"><a href="documento-bookdown---propuesta-avance-7.html#cb92-3" tabindex="-1"></a>trainCO</span></code></pre></div>
+<pre><code>##  [1]  0  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24
+## [26] 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49
+## [51] 50 51 52 53 54 55 56 57 58 59 60 61 62 63</code></pre>
+<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb94-1"><a href="documento-bookdown---propuesta-avance-7.html#cb94-1" tabindex="-1"></a>tamano_trainPM2<span class="fl">.5</span> <span class="ot">&lt;-</span> <span class="fu">round</span>(tamano_total<span class="sc">*</span><span class="fl">0.75</span>, <span class="at">digits =</span> <span class="dv">0</span>)</span>
+<span id="cb94-2"><a href="documento-bookdown---propuesta-avance-7.html#cb94-2" tabindex="-1"></a>trainPM2<span class="fl">.5</span> <span class="ot">&lt;-</span> <span class="dv">0</span><span class="sc">:</span>(tamano_trainPM2<span class="fl">.5</span><span class="dv">-1</span>)</span>
+<span id="cb94-3"><a href="documento-bookdown---propuesta-avance-7.html#cb94-3" tabindex="-1"></a>trainPM2<span class="fl">.5</span></span></code></pre></div>
+<pre><code>##  [1]  0  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24
+## [26] 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49
+## [51] 50 51 52 53 54 55 56 57 58 59 60 61 62 63</code></pre>
+<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb96-1"><a href="documento-bookdown---propuesta-avance-7.html#cb96-1" tabindex="-1"></a>testCO <span class="ot">&lt;-</span> (tamano_trainCO)<span class="sc">:</span>tamano_total</span>
+<span id="cb96-2"><a href="documento-bookdown---propuesta-avance-7.html#cb96-2" tabindex="-1"></a>testCO</span></code></pre></div>
+<pre><code>##  [1] 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85</code></pre>
+<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb98-1"><a href="documento-bookdown---propuesta-avance-7.html#cb98-1" tabindex="-1"></a>testPM2<span class="fl">.5</span> <span class="ot">&lt;-</span> (tamano_trainPM2<span class="fl">.5</span>)<span class="sc">:</span>tamano_total</span>
+<span id="cb98-2"><a href="documento-bookdown---propuesta-avance-7.html#cb98-2" tabindex="-1"></a>testPM2<span class="fl">.5</span></span></code></pre></div>
+<pre><code>##  [1] 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85</code></pre>
+</div>
+<div id="ahora-crearemos-un-dataframe-con-n-columnas-cada-una-de-las-cuales-adelantara-un-valor-de-la-serie-en-el-futuro-a-traves-de-una-variable-tipo-zoo-equivalente-al-periodo-de-retardo-de-la-serie.-prediccion-del-co" class="section level2 hasAnchor" number="7.2">
+<h2><span class="header-section-number">7.2</span> Ahora crearemos un dataframe con n columnas, cada una de las cuales adelantara un valor de la serie en el futuro, a traves de una variable tipo zoo, equivalente al periodo de retardo de la serie. (PREDICCION DEL CO)<a href="documento-bookdown---propuesta-avance-7.html#ahora-crearemos-un-dataframe-con-n-columnas-cada-una-de-las-cuales-adelantara-un-valor-de-la-serie-en-el-futuro-a-traves-de-una-variable-tipo-zoo-equivalente-al-periodo-de-retardo-de-la-serie.-prediccion-del-co" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="documento-bookdown---propuesta-avance-6.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="modelo-elman.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/06-references.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["bookdown-demo.pdf", "bookdown-demo.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

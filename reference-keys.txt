@@ -23,3 +23,9 @@ análisis-de-serie-estacionaria-y-no-estacionaria
 actividad-4-propuesta-avance-4
 datos-en-tsa
 actividad-5-propuesta-avance-5
+documento-bookdown---propuesta-avance-6
+documento-bookdown---propuesta-avance-7
+redes-neuronales-elman-y-jordan-aplicado-a-los-datos-co---pm2.5
+ahora-crearemos-un-dataframe-con-n-columnas-cada-una-de-las-cuales-adelantara-un-valor-de-la-serie-en-el-futuro-a-traves-de-una-variable-tipo-zoo-equivalente-al-periodo-de-retardo-de-la-serie.-prediccion-del-co
+modelo-elman
+modelo-jordan
