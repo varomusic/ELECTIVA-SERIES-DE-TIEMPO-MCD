@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 6 ACTIVIDAD 6 - PROPUESTA AVANCE 6 | Propuesta para realizar el Pronóstico de contaminantes del aire; PM2.5 y CO</title>
+  <meta name="description" content="Chapter 6 ACTIVIDAD 6 - PROPUESTA AVANCE 6 | Propuesta para realizar el Pronóstico de contaminantes del aire; PM2.5 y CO." />
+  <meta name="generator" content="bookdown 0.39 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 6 ACTIVIDAD 6 - PROPUESTA AVANCE 6 | Propuesta para realizar el Pronóstico de contaminantes del aire; PM2.5 y CO" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="Chapter 6 ACTIVIDAD 6 - PROPUESTA AVANCE 6 | Propuesta para realizar el Pronóstico de contaminantes del aire; PM2.5 y CO." />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 6 ACTIVIDAD 6 - PROPUESTA AVANCE 6 | Propuesta para realizar el Pronóstico de contaminantes del aire; PM2.5 y CO" />
+  
+  <meta name="twitter:description" content="Chapter 6 ACTIVIDAD 6 - PROPUESTA AVANCE 6 | Propuesta para realizar el Pronóstico de contaminantes del aire; PM2.5 y CO." />
+  
+
+<meta name="author" content="Alvaro Ariza - Carlos Sierra - Leonardo Cuellar" />
+
+
+<meta name="date" content="2024-06-23" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="actividad-5-propuesta-avance-5.html"/>
+<link rel="next" href="documento-bookdown---propuesta-avance-7.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<link href="libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet" />
+<script src="libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+<link href="libs/dygraphs-1.1.1/dygraph.css" rel="stylesheet" />
+<script src="libs/dygraphs-1.1.1/dygraph-combined.js"></script>
+<script src="libs/dygraphs-1.1.1/shapes.js"></script>
+<script src="libs/moment-2.8.4/moment.js"></script>
+<script src="libs/moment-timezone-0.2.5/moment-timezone-with-data.js"></script>
+<script src="libs/moment-fquarter-1.0.0/moment-fquarter.min.js"></script>
+<script src="libs/dygraphs-binding-1.1.1.6/dygraphs.js"></script>
+<script src="libs/Dygraph.Plugins.Unzoom-1.0/unzoom.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Minimal Book Example</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> PROPUESTA PARA REALIZAR EL PRONÓSTICO DE CONTAMINANTES DEL AIRE; PM2.5 Y CO</a></li>
+<li class="chapter" data-level="2" data-path="actividad-2-propuesta-avance-2.html"><a href="actividad-2-propuesta-avance-2.html"><i class="fa fa-check"></i><b>2</b> ACTIVIDAD 2: PROPUESTA AVANCE 2</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="actividad-2-propuesta-avance-2.html"><a href="actividad-2-propuesta-avance-2.html#base-de-datos"><i class="fa fa-check"></i><b>2.1</b> BASE DE DATOS</a></li>
+<li class="chapter" data-level="2.2" data-path="actividad-2-propuesta-avance-2.html"><a href="actividad-2-propuesta-avance-2.html#datos-en-series-de-tiempo"><i class="fa fa-check"></i><b>2.2</b> DATOS EN SERIES DE TIEMPO</a></li>
+<li class="chapter" data-level="2.3" data-path="actividad-2-propuesta-avance-2.html"><a href="actividad-2-propuesta-avance-2.html#gráficos-estacionales"><i class="fa fa-check"></i><b>2.3</b> GRÁFICOS ESTACIONALES</a></li>
+<li class="chapter" data-level="2.4" data-path="actividad-2-propuesta-avance-2.html"><a href="actividad-2-propuesta-avance-2.html#diagrama-de-rezagos"><i class="fa fa-check"></i><b>2.4</b> DIAGRAMA DE REZAGOS</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="actividad-3-propuesta-avance-3.html"><a href="actividad-3-propuesta-avance-3.html"><i class="fa fa-check"></i><b>3</b> ACTIVIDAD 3: PROPUESTA AVANCE 3</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="actividad-3-propuesta-avance-3.html"><a href="actividad-3-propuesta-avance-3.html#revisar-estacionariedad"><i class="fa fa-check"></i><b>3.1</b> Revisar Estacionariedad</a></li>
+<li class="chapter" data-level="3.2" data-path="actividad-3-propuesta-avance-3.html"><a href="actividad-3-propuesta-avance-3.html#realizar-ajuste-de-diferenciación"><i class="fa fa-check"></i><b>3.2</b> Realizar Ajuste de Diferenciación</a></li>
+<li class="chapter" data-level="3.3" data-path="actividad-3-propuesta-avance-3.html"><a href="actividad-3-propuesta-avance-3.html#análisis-de-serie-estacionaria-y-no-estacionaria"><i class="fa fa-check"></i><b>3.3</b> Análisis de Serie Estacionaria y no Estacionaria</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="actividad-4-propuesta-avance-4.html"><a href="actividad-4-propuesta-avance-4.html"><i class="fa fa-check"></i><b>4</b> ACTIVIDAD 4: PROPUESTA AVANCE 4</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="actividad-4-propuesta-avance-4.html"><a href="actividad-4-propuesta-avance-4.html#datos-en-tsa"><i class="fa fa-check"></i><b>4.1</b> Datos en TSA</a></li>
+<li class="chapter" data-level="4.2" data-path="actividad-4-propuesta-avance-4.html"><a href="actividad-4-propuesta-avance-4.html#modelo-suavizado-exponencialets"><i class="fa fa-check"></i><b>4.2</b> MODELO SUAVIZADO EXPONENCIAL(ETS)</a></li>
+<li class="chapter" data-level="4.3" data-path="actividad-4-propuesta-avance-4.html"><a href="actividad-4-propuesta-avance-4.html#forecast-de-nuestro-modelo"><i class="fa fa-check"></i><b>4.3</b> Forecast de nuestro modelo</a></li>
+<li class="chapter" data-level="4.4" data-path="actividad-4-propuesta-avance-4.html"><a href="actividad-4-propuesta-avance-4.html#ajuste-entre-los-datos-de-la-serie-y-el-pronostico-del-modelo"><i class="fa fa-check"></i><b>4.4</b> Ajuste entre los datos de la serie y el pronostico del modelo</a></li>
+<li class="chapter" data-level="4.5" data-path="actividad-4-propuesta-avance-4.html"><a href="actividad-4-propuesta-avance-4.html#resumen-completo-de-los-resultados"><i class="fa fa-check"></i><b>4.5</b> resumen completo de los resultados</a></li>
+<li class="chapter" data-level="4.6" data-path="actividad-4-propuesta-avance-4.html"><a href="actividad-4-propuesta-avance-4.html#suavizado-exponencialholt-winters"><i class="fa fa-check"></i><b>4.6</b> SUAVIZADO EXPONENCIAL(HOLT-WINTERS)</a></li>
+<li class="chapter" data-level="4.7" data-path="actividad-4-propuesta-avance-4.html"><a href="actividad-4-propuesta-avance-4.html#predicciones-a-8-meses"><i class="fa fa-check"></i><b>4.7</b> Predicciones a 8 meses</a></li>
+<li class="chapter" data-level="4.8" data-path="actividad-4-propuesta-avance-4.html"><a href="actividad-4-propuesta-avance-4.html#prediccion-a-8-meses-con-los-margenes-del-intervalo"><i class="fa fa-check"></i><b>4.8</b> Prediccion a 8 meses con los margenes del intervalo</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="actividad-5-propuesta-avance-5.html"><a href="actividad-5-propuesta-avance-5.html"><i class="fa fa-check"></i><b>5</b> ACTIVIDAD 5: PROPUESTA AVANCE 5</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="actividad-5-propuesta-avance-5.html"><a href="actividad-5-propuesta-avance-5.html#datos"><i class="fa fa-check"></i><b>5.1</b> Datos</a></li>
+<li class="chapter" data-level="5.2" data-path="actividad-5-propuesta-avance-5.html"><a href="actividad-5-propuesta-avance-5.html#librerias"><i class="fa fa-check"></i><b>5.2</b> Librerias</a></li>
+<li class="chapter" data-level="5.3" data-path="actividad-5-propuesta-avance-5.html"><a href="actividad-5-propuesta-avance-5.html#datos-en-series-de-tiempo-1"><i class="fa fa-check"></i><b>5.3</b> Datos en series de tiempo</a></li>
+<li class="chapter" data-level="5.4" data-path="actividad-5-propuesta-avance-5.html"><a href="actividad-5-propuesta-avance-5.html#graficas-de-datos"><i class="fa fa-check"></i><b>5.4</b> Graficas de datos</a></li>
+<li class="chapter" data-level="5.5" data-path="actividad-5-propuesta-avance-5.html"><a href="actividad-5-propuesta-avance-5.html#verificamos-que-sea-estacionaria-co-y-pm2.5"><i class="fa fa-check"></i><b>5.5</b> Verificamos que sea ESTACIONARIA CO y PM2.5</a></li>
+<li class="chapter" data-level="5.6" data-path="actividad-5-propuesta-avance-5.html"><a href="actividad-5-propuesta-avance-5.html#modelo-autoarima-co"><i class="fa fa-check"></i><b>5.6</b> Modelo autoarima CO</a></li>
+<li class="chapter" data-level="5.7" data-path="actividad-5-propuesta-avance-5.html"><a href="actividad-5-propuesta-avance-5.html#modelo-autoarima-pm2.5"><i class="fa fa-check"></i><b>5.7</b> Modelo autoarima PM2.5</a></li>
+<li class="chapter" data-level="5.8" data-path="actividad-5-propuesta-avance-5.html"><a href="actividad-5-propuesta-avance-5.html#validacion"><i class="fa fa-check"></i><b>5.8</b> Validacion</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="actividad-6---propuesta-avance-6.html"><a href="actividad-6---propuesta-avance-6.html"><i class="fa fa-check"></i><b>6</b> ACTIVIDAD 6 - PROPUESTA AVANCE 6</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="actividad-6---propuesta-avance-6.html"><a href="actividad-6---propuesta-avance-6.html#implementación-del-modelo-co"><i class="fa fa-check"></i><b>6.1</b> Implementación del Modelo CO</a></li>
+<li class="chapter" data-level="6.2" data-path="actividad-6---propuesta-avance-6.html"><a href="actividad-6---propuesta-avance-6.html#implementación-del-modelo-pm2.5"><i class="fa fa-check"></i><b>6.2</b> Implementación del Modelo PM2.5</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="documento-bookdown---propuesta-avance-7.html"><a href="documento-bookdown---propuesta-avance-7.html"><i class="fa fa-check"></i><b>7</b> Documento Bookdown - Propuesta avance 7</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="documento-bookdown---propuesta-avance-7.html"><a href="documento-bookdown---propuesta-avance-7.html#redes-neuronales-elman-y-jordan-aplicado-a-los-datos-co---pm2.5"><i class="fa fa-check"></i><b>7.1</b> redes neuronales ELMAN y Jordan APLICADO A LOS DATOS CO - PM2.5</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Propuesta para realizar el Pronóstico de contaminantes del aire; PM2.5 y CO</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="actividad-6---propuesta-avance-6" class="section level1 hasAnchor" number="6">
+<h1><span class="header-section-number">Chapter 6</span> ACTIVIDAD 6 - PROPUESTA AVANCE 6<a href="actividad-6---propuesta-avance-6.html#actividad-6---propuesta-avance-6" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Combinar métodos autorregresivos y de aprendizaje estadístico mediante el enfoque de la clasificación para analizar datos de series de tiempo.
+Aplicar el algoritmo Facebook´s Prophet, y si es viable la justificación para la variable en serie de tiempo vista como una regresión. Esto último, complementa los modelos planteados anteriormente y el ajuste a un modelo lineal y estacionario.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="actividad-6---propuesta-avance-6.html#cb1-1" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="actividad-6---propuesta-avance-6.html#cb2-1" tabindex="-1"></a><span class="fu">library</span>(lubridate)</span></code></pre></div>
+<pre><code>## 
+## Adjuntando el paquete: &#39;lubridate&#39;</code></pre>
+<pre><code>## The following objects are masked from &#39;package:base&#39;:
+## 
+##     date, intersect, setdiff, union</code></pre>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="actividad-6---propuesta-avance-6.html#cb5-1" tabindex="-1"></a><span class="fu">library</span>(prophet)</span></code></pre></div>
+<pre><code>## Cargando paquete requerido: Rcpp</code></pre>
+<pre><code>## Cargando paquete requerido: rlang</code></pre>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="actividad-6---propuesta-avance-6.html#cb8-1" tabindex="-1"></a><span class="fu">library</span>(lubridate)</span>
+<span id="cb8-2"><a href="actividad-6---propuesta-avance-6.html#cb8-2" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span></code></pre></div>
+<pre><code>## 
+## Adjuntando el paquete: &#39;dplyr&#39;</code></pre>
+<pre><code>## The following objects are masked from &#39;package:stats&#39;:
+## 
+##     filter, lag</code></pre>
+<pre><code>## The following objects are masked from &#39;package:base&#39;:
+## 
+##     intersect, setdiff, setequal, union</code></pre>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="actividad-6---propuesta-avance-6.html#cb12-1" tabindex="-1"></a><span class="fu">library</span>(tsibble)</span></code></pre></div>
+<pre><code>## 
+## Adjuntando el paquete: &#39;tsibble&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:lubridate&#39;:
+## 
+##     interval</code></pre>
+<pre><code>## The following objects are masked from &#39;package:base&#39;:
+## 
+##     intersect, setdiff, union</code></pre>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="actividad-6---propuesta-avance-6.html#cb16-1" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb16-2"><a href="actividad-6---propuesta-avance-6.html#cb16-2" tabindex="-1"></a>datos_CentroAltoRendimiento_RMCAB <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">&quot;C:/Users/ALVARO ARIZA/Desktop/Maestria Javeriana/SERIES DE TIEMPO/ACTIVIDAD 7/datos_CentroAltoRendimiento_RMCAB.xlsx&quot;</span>, </span>
+<span id="cb16-3"><a href="actividad-6---propuesta-avance-6.html#cb16-3" tabindex="-1"></a>    <span class="at">col_types =</span> <span class="fu">c</span>(<span class="st">&quot;date&quot;</span>, <span class="st">&quot;numeric&quot;</span>, <span class="st">&quot;numeric&quot;</span>))</span>
+<span id="cb16-4"><a href="actividad-6---propuesta-avance-6.html#cb16-4" tabindex="-1"></a><span class="fu">View</span>(datos_CentroAltoRendimiento_RMCAB)</span></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="actividad-6---propuesta-avance-6.html#cb17-1" tabindex="-1"></a><span class="fu">head</span>(datos_CentroAltoRendimiento_RMCAB)</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 3
+##   DateTime               CO PM2.5
+##   &lt;dttm&gt;              &lt;dbl&gt; &lt;dbl&gt;
+## 1 2012-01-01 00:00:00   2.3    14
+## 2 2012-02-01 00:00:00   1.6    19
+## 3 2012-03-01 00:00:00   0.7    13
+## 4 2012-04-01 00:00:00   1.2     2
+## 5 2012-05-01 00:00:00   1       2
+## 6 2012-06-01 00:00:00   0.9     2</code></pre>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="actividad-6---propuesta-avance-6.html#cb19-1" tabindex="-1"></a>new_dataCO <span class="ot">&lt;-</span> datos_CentroAltoRendimiento_RMCAB <span class="sc">%&gt;%</span></span>
+<span id="cb19-2"><a href="actividad-6---propuesta-avance-6.html#cb19-2" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">ds =</span> DateTime, <span class="at">y =</span> CO)</span></code></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="actividad-6---propuesta-avance-6.html#cb20-1" tabindex="-1"></a><span class="fu">head</span>(new_dataCO)</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 3
+##   ds                      y PM2.5
+##   &lt;dttm&gt;              &lt;dbl&gt; &lt;dbl&gt;
+## 1 2012-01-01 00:00:00   2.3    14
+## 2 2012-02-01 00:00:00   1.6    19
+## 3 2012-03-01 00:00:00   0.7    13
+## 4 2012-04-01 00:00:00   1.2     2
+## 5 2012-05-01 00:00:00   1       2
+## 6 2012-06-01 00:00:00   0.9     2</code></pre>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="actividad-6---propuesta-avance-6.html#cb22-1" tabindex="-1"></a>new_dataPM2<span class="fl">.5</span> <span class="ot">&lt;-</span> datos_CentroAltoRendimiento_RMCAB <span class="sc">%&gt;%</span></span>
+<span id="cb22-2"><a href="actividad-6---propuesta-avance-6.html#cb22-2" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">ds =</span> DateTime, <span class="at">y =</span> PM2<span class="fl">.5</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="actividad-6---propuesta-avance-6.html#cb23-1" tabindex="-1"></a><span class="fu">head</span>(new_dataPM2<span class="fl">.5</span>)</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 3
+##   ds                     CO     y
+##   &lt;dttm&gt;              &lt;dbl&gt; &lt;dbl&gt;
+## 1 2012-01-01 00:00:00   2.3    14
+## 2 2012-02-01 00:00:00   1.6    19
+## 3 2012-03-01 00:00:00   0.7    13
+## 4 2012-04-01 00:00:00   1.2     2
+## 5 2012-05-01 00:00:00   1       2
+## 6 2012-06-01 00:00:00   0.9     2</code></pre>
+<div id="implementación-del-modelo-co" class="section level2 hasAnchor" number="6.1">
+<h2><span class="header-section-number">6.1</span> Implementación del Modelo CO<a href="actividad-6---propuesta-avance-6.html#implementación-del-modelo-co" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="actividad-6---propuesta-avance-6.html#cb25-1" tabindex="-1"></a>new_dataCO <span class="sc">%&gt;%</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> ds, <span class="at">y =</span> y))<span class="sc">+</span></span>
+<span id="cb25-2"><a href="actividad-6---propuesta-avance-6.html#cb25-2" tabindex="-1"></a>  <span class="fu">geom_line</span>()<span class="sc">+</span></span>
+<span id="cb25-3"><a href="actividad-6---propuesta-avance-6.html#cb25-3" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()<span class="sc">+</span></span>
+<span id="cb25-4"><a href="actividad-6---propuesta-avance-6.html#cb25-4" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&#39;Datos contaminantes&#39;</span>,</span>
+<span id="cb25-5"><a href="actividad-6---propuesta-avance-6.html#cb25-5" tabindex="-1"></a>       <span class="at">subtitle =</span> <span class="st">&#39;2012 - 2019&#39;</span>,</span>
+<span id="cb25-6"><a href="actividad-6---propuesta-avance-6.html#cb25-6" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">&#39;Año&#39;</span>,</span>
+<span id="cb25-7"><a href="actividad-6---propuesta-avance-6.html#cb25-7" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&#39;CO&#39;</span>,</span>
+<span id="cb25-8"><a href="actividad-6---propuesta-avance-6.html#cb25-8" tabindex="-1"></a>       <span class="at">caption =</span> <span class="st">&#39;Elaboración propia con datos RMCAB&#39;</span>)</span></code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="actividad-6---propuesta-avance-6.html#cb26-1" tabindex="-1"></a>mCO2024 <span class="ot">&lt;-</span> <span class="fu">prophet</span>(new_dataCO,<span class="at">daily.seasonality =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<pre><code>## Disabling weekly seasonality. Run prophet with weekly.seasonality=TRUE to override this.</code></pre>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="actividad-6---propuesta-avance-6.html#cb28-1" tabindex="-1"></a>future <span class="ot">&lt;-</span> <span class="fu">make_future_dataframe</span>(mCO2024,<span class="at">periods =</span> <span class="dv">3</span>,<span class="at">freq =</span> <span class="st">&#39;day&#39;</span>)</span>
+<span id="cb28-2"><a href="actividad-6---propuesta-avance-6.html#cb28-2" tabindex="-1"></a><span class="fu">tail</span>(future)</span></code></pre></div>
+<pre><code>##            ds
+## 83 2018-11-01
+## 84 2018-12-01
+## 85 2019-01-01
+## 86 2019-01-02
+## 87 2019-01-03
+## 88 2019-01-04</code></pre>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="actividad-6---propuesta-avance-6.html#cb30-1" tabindex="-1"></a>forecast <span class="ot">&lt;-</span> <span class="fu">predict</span>(mCO2024, future)</span>
+<span id="cb30-2"><a href="actividad-6---propuesta-avance-6.html#cb30-2" tabindex="-1"></a></span>
+<span id="cb30-3"><a href="actividad-6---propuesta-avance-6.html#cb30-3" tabindex="-1"></a></span>
+<span id="cb30-4"><a href="actividad-6---propuesta-avance-6.html#cb30-4" tabindex="-1"></a><span class="fu">dyplot.prophet</span>(mCO2024, forecast)</span></code></pre></div>
+<pre><code>## Warning: `select_()` was deprecated in dplyr 0.7.0.
+## ℹ Please use `select()` instead.
+## ℹ The deprecated feature was likely used in the prophet package.
+##   Please report the issue at &lt;https://github.com/facebook/prophet/issues&gt;.
+## This warning is displayed once every 8 hours.
+## Call `lifecycle::last_lifecycle_warnings()` to see where this warning was
+## generated.</code></pre>
+<div class="dygraphs html-widget html-fill-item" id="htmlwidget-27c06196ab495785ea65" style="width:672px;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-27c06196ab495785ea65">{"x":{"attrs":{"labels":["month","Actual","Predicted"],"legend":"auto","retainDateWindow":false,"axes":{"x":{"pixelsPerLabel":60}},"colors":["black","blue"],"series":{"Actual":{"axis":"y","drawPoints":true,"strokeWidth":0},"Predicted":{"axis":"y"}},"customBars":true,"showRangeSelector":true,"rangeSelectorHeight":40,"rangeSelectorPlotFillColor":" #A7B1C4","rangeSelectorPlotStrokeColor":"#808FAB","interactionModel":"Dygraph.Interaction.defaultModel"},"scale":"monthly","annotations":[],"shadings":[],"events":[],"format":"date","data":[["2012-01-01T00:00:00.000Z","2012-02-01T00:00:00.000Z","2012-03-01T00:00:00.000Z","2012-04-01T00:00:00.000Z","2012-05-01T00:00:00.000Z","2012-06-01T00:00:00.000Z","2012-07-01T00:00:00.000Z","2012-08-01T00:00:00.000Z","2012-09-01T00:00:00.000Z","2012-10-01T00:00:00.000Z","2012-11-01T00:00:00.000Z","2012-12-01T00:00:00.000Z","2013-01-01T00:00:00.000Z","2013-02-01T00:00:00.000Z","2013-03-01T00:00:00.000Z","2013-04-01T00:00:00.000Z","2013-05-01T00:00:00.000Z","2013-06-01T00:00:00.000Z","2013-07-01T00:00:00.000Z","2013-08-01T00:00:00.000Z","2013-09-01T00:00:00.000Z","2013-10-01T00:00:00.000Z","2013-11-01T00:00:00.000Z","2013-12-01T00:00:00.000Z","2014-01-01T00:00:00.000Z","2014-02-01T00:00:00.000Z","2014-03-01T00:00:00.000Z","2014-04-01T00:00:00.000Z","2014-05-01T00:00:00.000Z","2014-06-01T00:00:00.000Z","2014-07-01T00:00:00.000Z","2014-08-01T00:00:00.000Z","2014-09-01T00:00:00.000Z","2014-10-01T00:00:00.000Z","2014-11-01T00:00:00.000Z","2014-12-01T00:00:00.000Z","2015-01-01T00:00:00.000Z","2015-02-01T00:00:00.000Z","2015-03-01T00:00:00.000Z","2015-04-01T00:00:00.000Z","2015-05-01T00:00:00.000Z","2015-06-01T00:00:00.000Z","2015-07-01T00:00:00.000Z","2015-08-01T00:00:00.000Z","2015-09-01T00:00:00.000Z","2015-10-01T00:00:00.000Z","2015-11-01T00:00:00.000Z","2015-12-01T00:00:00.000Z","2016-01-01T00:00:00.000Z","2016-02-01T00:00:00.000Z","2016-03-01T00:00:00.000Z","2016-04-01T00:00:00.000Z","2016-05-01T00:00:00.000Z","2016-06-01T00:00:00.000Z","2016-07-01T00:00:00.000Z","2016-08-01T00:00:00.000Z","2016-09-01T00:00:00.000Z","2016-10-01T00:00:00.000Z","2016-11-01T00:00:00.000Z","2016-12-01T00:00:00.000Z","2017-01-01T00:00:00.000Z","2017-02-01T00:00:00.000Z","2017-03-01T00:00:00.000Z","2017-04-01T00:00:00.000Z","2017-05-01T00:00:00.000Z","2017-06-01T00:00:00.000Z","2017-07-01T00:00:00.000Z","2017-08-01T00:00:00.000Z","2017-09-01T00:00:00.000Z","2017-10-01T00:00:00.000Z","2017-11-01T00:00:00.000Z","2017-12-01T00:00:00.000Z","2018-01-01T00:00:00.000Z","2018-02-01T00:00:00.000Z","2018-03-01T00:00:00.000Z","2018-04-01T00:00:00.000Z","2018-05-01T00:00:00.000Z","2018-06-01T00:00:00.000Z","2018-07-01T00:00:00.000Z","2018-08-01T00:00:00.000Z","2018-09-01T00:00:00.000Z","2018-10-01T00:00:00.000Z","2018-11-01T00:00:00.000Z","2018-12-01T00:00:00.000Z","2019-01-01T00:00:00.000Z","2019-01-02T00:00:00.000Z","2019-01-03T00:00:00.000Z","2019-01-04T00:00:00.000Z"],[[2.3,2.3,2.3],[1.6,1.6,1.6],[0.7,0.7,0.7],[1.2,1.2,1.2],[1,1,1],[0.9,0.9,0.9],[0.5,0.5,0.5],[0.5,0.5,0.5],[0.8,0.8,0.8],[1.2,1.2,1.2],[1.2,1.2,1.2],[1.1,1.1,1.1],[1,1,1],[0.6,0.6,0.6],[0.4,0.4,0.4],[0.2,0.2,0.2],[0.2,0.2,0.2],[0.2,0.2,0.2],[0.1,0.1,0.1],[0.1,0.1,0.1],[0.1,0.1,0.1],[0.7,0.7,0.7],[0.5,0.5,0.5],[0.3,0.3,0.3],[0.2,0.2,0.2],[0,0,0],[0.2,0.2,0.2],[0.5,0.5,0.5],[0.7,0.7,0.7],[0.9,0.9,0.9],[0.8,0.8,0.8],[0.7,0.7,0.7],[0.2,0.2,0.2],[0.4,0.4,0.4],[1.6,1.6,1.6],[2.2,2.2,2.2],[2.1,2.1,2.1],[1,1,1],[1.2,1.2,1.2],[1.1,1.1,1.1],[0.6,0.6,0.6],[0.4,0.4,0.4],[0.6,0.6,0.6],[0.9,0.9,0.9],[1.5,1.5,1.5],[1.9,1.9,1.9],[3.3,3.3,3.3],[4.1,4.1,4.1],[2.6,2.6,2.6],[1.3,1.3,1.3],[1.1,1.1,1.1],[1.4,1.4,1.4],[1.6,1.6,1.6],[1.1,1.1,1.1],[1.6,1.6,1.6],[2.9,2.9,2.9],[4.3,4.3,4.3],[5,5,5],[3.8,3.8,3.8],[3.8,3.8,3.8],[2.8,2.8,2.8],[1.2,1.2,1.2],[0.9,0.9,0.9],[0.9,0.9,0.9],[0.9,0.9,0.9],[0.8,0.8,0.8],[0.6,0.6,0.6],[0.5,0.5,0.5],[1,1,1],[1.5,1.5,1.5],[1.5,1.5,1.5],[0.8,0.8,0.8],[0.4,0.4,0.4],[0.4,0.4,0.4],[1,1,1],[1.1,1.1,1.1],[1.4,1.4,1.4],[1.7,1.7,1.7],[2,2,2],[3.1,3.1,3.1],[4.9,4.9,4.9],[4.8,4.8,4.8],[3.3,3.3,3.3],[3.3,3.3,3.3],[4.6,4.6,4.6],[null,null,null],[null,null,null],[null,null,null]],[[0.2479094697537452,1.465606733791692,2.600122255899246],[-0.9581845986260201,0.2506482479270356,1.384763828095774],[-0.8427590136007971,0.2933639753916681,1.507402409387639],[-0.9093403053710767,0.3015823602105517,1.438723404474097],[-0.9623937810568737,0.1724870689792193,1.33913988423544],[-1.385302312677728,-0.1604850629121258,0.9596778765350285],[-1.370776257067055,-0.2284134927738925,0.9576511444521268],[-0.860008254780078,0.2982998223635695,1.491073864837826],[-0.08885928495193056,1.105536061040253,2.295636681905215],[0.6238044344214563,1.877774063898798,3.0810845931164],[0.3020225989667675,1.402798475500022,2.565907712761488],[0.02829112409719816,1.223873899314079,2.440594858606422],[-0.2909379832002986,0.8846678281305098,2.150891234027032],[-1.107741248428233,0.129316767472235,1.263570495019026],[-0.83004141488664,0.3109075162741196,1.577478023558426],[-0.7374693668969413,0.4086953018821944,1.590624903598731],[-0.854313676104439,0.3781005880326635,1.518963530914325],[-0.9394822660235699,0.2605973967476838,1.468772749169721],[-0.9060529157906687,0.2730446865104238,1.472961729509297],[-0.5651387652346667,0.6713552756390637,1.819427415039709],[0.2107550073086764,1.307205028516859,2.605837582200896],[0.6382854495033123,1.77353142293305,2.868559875227004],[0.4476409119268403,1.630011855832597,2.753970407916952],[0.4156577095991109,1.635380131767879,2.822540064259225],[0.3302225023855706,1.445529600914548,2.625558170663235],[-0.6213647518204751,0.5444690330394769,1.724216242001881],[-0.8226300968019444,0.3237461125389589,1.516325220045291],[-0.5955752256368307,0.5187531427162487,1.648397848077108],[-0.5340079764061425,0.5910370126937862,1.772162415249532],[-0.4122793453516949,0.6878314572942171,1.912229467825747],[-0.3760948719939873,0.7729130168092559,1.957552343156026],[-0.1267109399620628,1.036977967740415,2.232455758081656],[0.2941059129535972,1.5002362433664,2.731396174852164],[0.5312541957363488,1.670452708117785,2.846111028240845],[0.7349788558955466,1.866567681688721,3.017835195402429],[0.8453806777966044,2.053692237000774,3.221157655834133],[0.8538474539085918,2.005682132745119,3.181420417328934],[-0.2681893463967776,0.9513449907507434,2.140932616751993],[-0.8293992511007412,0.3322534570212137,1.497330813050325],[-0.5653670519195048,0.6320742774107539,1.891814934996961],[-0.4065624466464882,0.8113762588828566,1.969284693024667],[-0.07782007723308394,1.120986474561676,2.402478519449482],[0.1346158370840211,1.270838274090434,2.436758770330071],[0.2517280497310188,1.395014485385935,2.530814492043203],[0.4973504677912539,1.684804185144156,2.76554338312343],[0.3787106442400868,1.569037434844446,2.689959483541245],[1.041944994563555,2.112593025922942,3.299486501011129],[1.323223000329442,2.478547545278627,3.629409983394742],[1.349944319098343,2.564695776942527,3.738346491670547],[0.1518769218172761,1.349738004959105,2.474691940493742],[0.2292281961178668,1.392454400247106,2.600205550637481],[0.2228799170838038,1.400673498945842,2.568869202968034],[0.09711887454668594,1.271578898567907,2.463392212707863],[-0.2921334089617654,0.9386074805547515,2.285045949715776],[-0.3594988551510592,0.8706797415487025,2.010551392759393],[0.2464704694537974,1.397393770572175,2.635455434970881],[1.045372284782968,2.204630723133254,3.352274835589927],[1.777392035483121,2.976869416863489,4.158234616413196],[1.349100167813545,2.501894542364506,3.633042391861836],[1.126396821956041,2.322970657050871,3.515618987195294],[0.853731491952896,1.983765299775659,3.197694001335801],[0.02122965869180509,1.22841495302641,2.432019751651502],[0.2637991306322255,1.410006346658908,2.553619203773574],[0.3101799747829413,1.507794846194759,2.669145864134856],[0.2528659634387994,1.477200823247661,2.728950151125959],[0.1326258974123004,1.359698345920235,2.614618954629552],[0.129833011125771,1.372146326604098,2.573996191849485],[0.6633866654839981,1.770457629691715,2.940976825400661],[1.220147429257218,2.406308096542556,3.608014872501351],[1.697739888336083,2.872635181900397,4.042661107313945],[1.564150582740354,2.729116328770539,3.851689566951194],[1.65271892087003,2.734485295643061,3.883763628112282],[1.336666724613326,2.544635478756545,3.745549729300446],[0.4020222036581056,1.643575624842528,2.734142606999333],[0.1782062390913544,1.422853349207836,2.559403784288867],[0.4503462352493785,1.617861093339103,2.719706860960411],[0.5743901874794027,1.690144963454331,2.827055953778159],[0.6057490897008115,1.786939408196209,3.004111523150338],[0.6399402172633681,1.872020967818893,3.148372038069764],[0.925296814008678,2.136085918861134,3.231898741939263],[1.394676020154111,2.599344194598862,3.886853510235317],[1.657389665640441,2.76956065946557,4.027384809951265],[1.845174972836701,2.96567563315567,4.172470447338949],[1.973388079239092,3.152800188583304,4.393875961389807],[1.967543167319152,3.104790084441139,4.280163763169825],[0.8051419252939367,1.960693939157386,3.198442758706772],[-0.3883198065226225,0.8256337971927994,1.967755049721974],[-1.557391152937877,-0.2733752489712458,1.017083960460888]]],"plugins":{"Unzoom":"{}"}},"evals":["attrs.interactionModel","plugins.Unzoom"],"jsHooks":[]}</script>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="actividad-6---propuesta-avance-6.html#cb32-1" tabindex="-1"></a><span class="fu">tail</span>(forecast[<span class="fu">c</span>(<span class="st">&#39;ds&#39;</span>, <span class="st">&#39;yhat&#39;</span>, <span class="st">&#39;yhat_lower&#39;</span>, <span class="st">&#39;yhat_upper&#39;</span>)])</span></code></pre></div>
+<pre><code>##            ds       yhat yhat_lower yhat_upper
+## 83 2018-11-01  2.9656756  1.8451750   4.172470
+## 84 2018-12-01  3.1528002  1.9733881   4.393876
+## 85 2019-01-01  3.1047901  1.9675432   4.280164
+## 86 2019-01-02  1.9606939  0.8051419   3.198443
+## 87 2019-01-03  0.8256338 -0.3883198   1.967755
+## 88 2019-01-04 -0.2733752 -1.5573912   1.017084</code></pre>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="actividad-6---propuesta-avance-6.html#cb34-1" tabindex="-1"></a><span class="fu">prophet_plot_components</span>(mCO2024,forecast)</span></code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
+</div>
+<div id="implementación-del-modelo-pm2.5" class="section level2 hasAnchor" number="6.2">
+<h2><span class="header-section-number">6.2</span> Implementación del Modelo PM2.5<a href="actividad-6---propuesta-avance-6.html#implementación-del-modelo-pm2.5" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="actividad-6---propuesta-avance-6.html#cb35-1" tabindex="-1"></a>new_dataPM2<span class="fl">.5</span> <span class="sc">%&gt;%</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> ds, <span class="at">y =</span> y))<span class="sc">+</span></span>
+<span id="cb35-2"><a href="actividad-6---propuesta-avance-6.html#cb35-2" tabindex="-1"></a>  <span class="fu">geom_line</span>()<span class="sc">+</span></span>
+<span id="cb35-3"><a href="actividad-6---propuesta-avance-6.html#cb35-3" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()<span class="sc">+</span></span>
+<span id="cb35-4"><a href="actividad-6---propuesta-avance-6.html#cb35-4" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&#39;Datos contaminantes&#39;</span>,</span>
+<span id="cb35-5"><a href="actividad-6---propuesta-avance-6.html#cb35-5" tabindex="-1"></a>       <span class="at">subtitle =</span> <span class="st">&#39;2012 - 2019&#39;</span>,</span>
+<span id="cb35-6"><a href="actividad-6---propuesta-avance-6.html#cb35-6" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">&#39;Año&#39;</span>,</span>
+<span id="cb35-7"><a href="actividad-6---propuesta-avance-6.html#cb35-7" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&#39;PM2.5&#39;</span>,</span>
+<span id="cb35-8"><a href="actividad-6---propuesta-avance-6.html#cb35-8" tabindex="-1"></a>       <span class="at">caption =</span> <span class="st">&#39;Elaboración propia con datos RMCAB&#39;</span>)</span></code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-16-1.png" width="672" /></p>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="actividad-6---propuesta-avance-6.html#cb36-1" tabindex="-1"></a>mPM2<span class="fl">.52024</span> <span class="ot">&lt;-</span> <span class="fu">prophet</span>(new_dataPM2<span class="fl">.5</span>,<span class="at">daily.seasonality =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<pre><code>## Disabling weekly seasonality. Run prophet with weekly.seasonality=TRUE to override this.</code></pre>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="actividad-6---propuesta-avance-6.html#cb38-1" tabindex="-1"></a>futurePM2<span class="fl">.5</span> <span class="ot">&lt;-</span> <span class="fu">make_future_dataframe</span>(mPM2<span class="fl">.52024</span>,<span class="at">periods =</span> <span class="dv">3</span>,<span class="at">freq =</span> <span class="st">&#39;day&#39;</span>)</span>
+<span id="cb38-2"><a href="actividad-6---propuesta-avance-6.html#cb38-2" tabindex="-1"></a><span class="fu">tail</span>(futurePM2<span class="fl">.5</span>)</span></code></pre></div>
+<pre><code>##            ds
+## 83 2018-11-01
+## 84 2018-12-01
+## 85 2019-01-01
+## 86 2019-01-02
+## 87 2019-01-03
+## 88 2019-01-04</code></pre>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="actividad-6---propuesta-avance-6.html#cb40-1" tabindex="-1"></a>forecastPM2<span class="fl">.5</span> <span class="ot">&lt;-</span> <span class="fu">predict</span>(mPM2<span class="fl">.52024</span>, futurePM2<span class="fl">.5</span>)</span>
+<span id="cb40-2"><a href="actividad-6---propuesta-avance-6.html#cb40-2" tabindex="-1"></a></span>
+<span id="cb40-3"><a href="actividad-6---propuesta-avance-6.html#cb40-3" tabindex="-1"></a></span>
+<span id="cb40-4"><a href="actividad-6---propuesta-avance-6.html#cb40-4" tabindex="-1"></a><span class="fu">dyplot.prophet</span>(mPM2<span class="fl">.52024</span>, forecastPM2<span class="fl">.5</span>)</span></code></pre></div>
+<div class="dygraphs html-widget html-fill-item" id="htmlwidget-7cf954a9fa2b054f15f0" style="width:672px;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-7cf954a9fa2b054f15f0">{"x":{"attrs":{"labels":["month","Actual","Predicted"],"legend":"auto","retainDateWindow":false,"axes":{"x":{"pixelsPerLabel":60}},"colors":["black","blue"],"series":{"Actual":{"axis":"y","drawPoints":true,"strokeWidth":0},"Predicted":{"axis":"y"}},"customBars":true,"showRangeSelector":true,"rangeSelectorHeight":40,"rangeSelectorPlotFillColor":" #A7B1C4","rangeSelectorPlotStrokeColor":"#808FAB","interactionModel":"Dygraph.Interaction.defaultModel"},"scale":"monthly","annotations":[],"shadings":[],"events":[],"format":"date","data":[["2012-01-01T00:00:00.000Z","2012-02-01T00:00:00.000Z","2012-03-01T00:00:00.000Z","2012-04-01T00:00:00.000Z","2012-05-01T00:00:00.000Z","2012-06-01T00:00:00.000Z","2012-07-01T00:00:00.000Z","2012-08-01T00:00:00.000Z","2012-09-01T00:00:00.000Z","2012-10-01T00:00:00.000Z","2012-11-01T00:00:00.000Z","2012-12-01T00:00:00.000Z","2013-01-01T00:00:00.000Z","2013-02-01T00:00:00.000Z","2013-03-01T00:00:00.000Z","2013-04-01T00:00:00.000Z","2013-05-01T00:00:00.000Z","2013-06-01T00:00:00.000Z","2013-07-01T00:00:00.000Z","2013-08-01T00:00:00.000Z","2013-09-01T00:00:00.000Z","2013-10-01T00:00:00.000Z","2013-11-01T00:00:00.000Z","2013-12-01T00:00:00.000Z","2014-01-01T00:00:00.000Z","2014-02-01T00:00:00.000Z","2014-03-01T00:00:00.000Z","2014-04-01T00:00:00.000Z","2014-05-01T00:00:00.000Z","2014-06-01T00:00:00.000Z","2014-07-01T00:00:00.000Z","2014-08-01T00:00:00.000Z","2014-09-01T00:00:00.000Z","2014-10-01T00:00:00.000Z","2014-11-01T00:00:00.000Z","2014-12-01T00:00:00.000Z","2015-01-01T00:00:00.000Z","2015-02-01T00:00:00.000Z","2015-03-01T00:00:00.000Z","2015-04-01T00:00:00.000Z","2015-05-01T00:00:00.000Z","2015-06-01T00:00:00.000Z","2015-07-01T00:00:00.000Z","2015-08-01T00:00:00.000Z","2015-09-01T00:00:00.000Z","2015-10-01T00:00:00.000Z","2015-11-01T00:00:00.000Z","2015-12-01T00:00:00.000Z","2016-01-01T00:00:00.000Z","2016-02-01T00:00:00.000Z","2016-03-01T00:00:00.000Z","2016-04-01T00:00:00.000Z","2016-05-01T00:00:00.000Z","2016-06-01T00:00:00.000Z","2016-07-01T00:00:00.000Z","2016-08-01T00:00:00.000Z","2016-09-01T00:00:00.000Z","2016-10-01T00:00:00.000Z","2016-11-01T00:00:00.000Z","2016-12-01T00:00:00.000Z","2017-01-01T00:00:00.000Z","2017-02-01T00:00:00.000Z","2017-03-01T00:00:00.000Z","2017-04-01T00:00:00.000Z","2017-05-01T00:00:00.000Z","2017-06-01T00:00:00.000Z","2017-07-01T00:00:00.000Z","2017-08-01T00:00:00.000Z","2017-09-01T00:00:00.000Z","2017-10-01T00:00:00.000Z","2017-11-01T00:00:00.000Z","2017-12-01T00:00:00.000Z","2018-01-01T00:00:00.000Z","2018-02-01T00:00:00.000Z","2018-03-01T00:00:00.000Z","2018-04-01T00:00:00.000Z","2018-05-01T00:00:00.000Z","2018-06-01T00:00:00.000Z","2018-07-01T00:00:00.000Z","2018-08-01T00:00:00.000Z","2018-09-01T00:00:00.000Z","2018-10-01T00:00:00.000Z","2018-11-01T00:00:00.000Z","2018-12-01T00:00:00.000Z","2019-01-01T00:00:00.000Z","2019-01-02T00:00:00.000Z","2019-01-03T00:00:00.000Z","2019-01-04T00:00:00.000Z"],[[14,14,14],[19,19,19],[13,13,13],[2,2,2],[2,2,2],[2,2,2],[6,6,6],[4,4,4],[1,1,1],[8,8,8],[7,7,7],[5,5,5],[5,5,5],[5,5,5],[3,3,3],[1,1,1],[3,3,3],[2,2,2],[2,2,2],[1,1,1],[3,3,3],[4,4,4],[5,5,5],[2,2,2],[7,7,7],[5,5,5],[1,1,1],[1,1,1],[1,1,1],[3,3,3],[6,6,6],[3,3,3],[9,9,9],[8,8,8],[7,7,7],[17,17,17],[16,16,16],[23,23,23],[12,12,12],[13,13,13],[9,9,9],[6,6,6],[7,7,7],[13,13,13],[11,11,11],[22,22,22],[20,20,20],[43,43,43],[37,37,37],[17,17,17],[14,14,14],[8,8,8],[11,11,11],[19,19,19],[16,16,16],[21,21,21],[18,18,18],[32,32,32],[32,32,32],[28,28,28],[25,25,25],[12,12,12],[13,13,13],[8,8,8],[5,5,5],[5,5,5],[8,8,8],[5,5,5],[3,3,3],[8,8,8],[25,25,25],[11,11,11],[6,6,6],[3,3,3],[2,2,2],[15,15,15],[11,11,11],[13,13,13],[23,23,23],[23,23,23],[32,32,32],[45,45,45],[36,36,36],[31,31,31],[30,30,30],[null,null,null],[null,null,null],[null,null,null]],[[2.295979932107146,11.66505976211875,21.47458041756809],[-0.9671936475350644,8.244805203229834,17.31022717292273],[-1.897659197236423,7.456131420700078,16.65992551529138],[-12.46093601265245,-2.575707813831436,6.591172561136874],[-12.52289351653574,-2.914720879974095,6.404001919749197],[-10.10131029364844,-0.4518820381664319,8.804651332677777],[-8.557549632662557,0.95656792345256,10.40491523468988],[-7.689371731908748,1.631799759143133,10.56276256217335],[-7.510159701847672,1.9342320872621,11.61739515557975],[2.57525742093141,11.37586839571276,20.16051738887904],[7.1442391623562,16.42712464054922,25.97645932423559],[-0.9048357591718221,8.466012353720078,18.00416766838129],[-1.910612187671993,7.521311374881586,16.44015101001817],[-6.266408878273851,2.868563291033506,12.11022176528203],[-5.220345783983005,4.578158844262243,13.16990030307936],[-7.595684715776992,1.192248708167712,10.0414110490389],[-8.913707287545808,0.4952511440551746,10.12295937224729],[-7.443171551999703,1.936814632279598,11.94878317006625],[-5.649925017585426,4.2587991481949,13.69957187584774],[-4.524934423890238,4.640980105199634,13.555687184721],[-4.295063771404935,5.504618198471023,15.15270675192501],[4.087699179558457,13.16869550133624,22.15843910436995],[5.120904710772663,14.78430635778421,24.55316741234913],[3.721398026056625,13.53401825465437,22.8814227700703],[3.523017117803371,12.41453624303338,22.04072799374994],[-1.339808191368927,8.275322839672077,17.73265249043507],[-6.963163913721462,1.686494720338917,11.23960500996069],[-3.964639468881153,5.039978086800232,14.7338966195303],[-5.226108554732997,3.914147362232412,13.21208396606444],[-4.975372371573332,4.331373979982648,14.12700575097459],[-1.907424263853596,7.565562204264831,16.3811268328438],[-1.752565370256262,7.640581060728672,17.12397283381712],[-0.3201875444530558,9.03851669381425,18.87257611096789],[6.193397984256063,14.90109412775947,24.44205657549249],[4.072983499866099,13.19373291517964,22.92170043002846],[8.992281447785128,18.7019661543916,28.14142823199873],[7.663741522561168,17.30929673024603,26.30247288444406],[4.811520356473624,13.58047631401436,23.41831920748108],[-10.21561120997446,-1.212920687927943,8.256962317929448],[-0.1259920967154154,8.967582988415899,18.84361193809562],[-2.210739675671855,7.340841235086292,17.14851721468647],[-2.590955148499288,6.731526588093194,16.16327793693796],[0.9664779369985137,10.87584024799305,20.51277038907448],[0.5556281785617027,10.62967048705467,20.21064855438041],[3.040055647316845,12.53502556724562,21.87076182287609],[6.904500935902438,16.57518318709763,25.4174848535247],[2.795299162257322,11.66004948730985,20.97963727561549],[14.88559582231627,23.96715548797976,33.43985032070923],[12.8140737355489,22.20151538953732,31.52455724161636],[9.376738096243571,18.78126090466462,28.14660016958793],[8.685515959152948,17.99258719136315,27.7245525933791],[-1.744405270616314,7.960748030838139,16.79025484968858],[-2.032383629750238,7.621735036305712,16.92350811530684],[0.755703450237188,10.08457395207596,18.42809182818986],[2.02538494312938,11.49302398532411,20.97624186928824],[2.401798137632198,12.16825589502548,21.41851928148722],[3.339521407745213,12.47068829716601,22.14603667215267],[12.14002366375739,21.91232467724404,31.27816655877505],[16.89138912152819,26.96358099610475,36.2355929634566],[9.591618484227833,19.00246878091371,27.902779799081],[8.548372804417097,18.05776787608346,27.87432382025153],[4.413459751765926,13.40501986623765,23.28964383897681],[5.558105802066181,15.1146154194213,24.30231596272724],[2.552035014544364,11.72870528325878,21.26757699412842],[1.682294013709084,11.03170771910249,20.783895765373],[3.618340459255205,12.47327120731193,21.39021326901102],[5.363081974771861,14.79525572315665,24.63460467308507],[6.176888378748551,15.17743668014318,24.11689296274306],[6.596678335203155,16.0410747733944,25.22388911881512],[14.70159198384335,23.70515207625591,32.96461469358784],[14.92999635202054,25.32076293269821,34.97827375436707],[14.36930713950406,24.07047482953472,33.0909991893639],[14.12405461831192,22.95099281790148,33.10273707085643],[9.383290788663277,18.81177941452989,27.89603064260977],[2.622164551575052,12.22295129518929,21.04774839596618],[7.022664497554883,15.57643466160524,25.95189390056644],[4.694671445513351,14.45060393700371,23.99318124336296],[5.455193298625803,14.86783055472602,24.75280667344911],[8.475224060049287,18.10201877899906,27.00351816012807],[8.652519607409335,18.177037635418,27.78512432086723],[10.9350728516797,19.57497326848763,28.68474405596186],[15.51843057686508,25.43755070238936,35.10412262699109],[14.70403228253972,23.73018948975728,32.81340426143883],[20.34719695025411,29.23842272891792,39.26110218229883],[18.18430885209906,27.8457533047578,37.19901914183719],[8.879180794459057,18.82867181678848,27.50685369461235],[-0.2022512216768333,10.03066133484908,19.5327560732147],[-7.640657013415096,1.704914908841232,11.07321364483425]]],"plugins":{"Unzoom":"{}"}},"evals":["attrs.interactionModel","plugins.Unzoom"],"jsHooks":[]}</script>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="actividad-6---propuesta-avance-6.html#cb41-1" tabindex="-1"></a><span class="fu">tail</span>(forecastPM2<span class="fl">.5</span>[<span class="fu">c</span>(<span class="st">&#39;ds&#39;</span>, <span class="st">&#39;yhat&#39;</span>, <span class="st">&#39;yhat_lower&#39;</span>, <span class="st">&#39;yhat_upper&#39;</span>)])</span></code></pre></div>
+<pre><code>##            ds      yhat yhat_lower yhat_upper
+## 83 2018-11-01 23.730189 14.7040323   32.81340
+## 84 2018-12-01 29.238423 20.3471970   39.26110
+## 85 2019-01-01 27.845753 18.1843089   37.19902
+## 86 2019-01-02 18.828672  8.8791808   27.50685
+## 87 2019-01-03 10.030661 -0.2022512   19.53276
+## 88 2019-01-04  1.704915 -7.6406570   11.07321</code></pre>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="actividad-6---propuesta-avance-6.html#cb43-1" tabindex="-1"></a><span class="fu">prophet_plot_components</span>(mPM2<span class="fl">.52024</span>,forecastPM2<span class="fl">.5</span>)</span></code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-20-1.png" width="672" /></p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="actividad-5-propuesta-avance-5.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="documento-bookdown---propuesta-avance-7.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/05-summary.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["bookdown-demo.pdf", "bookdown-demo.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
